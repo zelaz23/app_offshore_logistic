@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import pickle
 import math
+import streamlit as st
 
 from sklearn.preprocessing import OneHotEncoder
 
