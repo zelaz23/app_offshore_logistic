@@ -19,21 +19,13 @@ from sklearn.pipeline import make_pipeline
 # -------------------- DATOS METEOROLÓGICOS ------------------------------
 
 # Cargar un archivo con los datos meteorológicos a analizar
-archivo = st.file_uploader('Selecciona un archivo csv')
+archivo = st.file_uploader('Select a csv file')
 
 if archivo is not None:
     df = pd.read_csv(archivo)
+    st.write(df)
 else:
-    st.stop()
-
-variable_num = st.selectbox('Selecciona una variable numerica:',df.columns.to_list())
-
-fig, ax = plt.subplots()
-
-ax = sns.histplot(data = df, x = variable_num)
-
-st.pyplot(fig)
-
+    st.write("Please upload a csv file to continue")
 
 # -------------------- CRITERIOS TRABAJO VEHÍCULOS ------------------------------
 # Quitamos este código porque estos datos los introduciremos a mano en la pantalla de la app
