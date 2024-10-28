@@ -41,7 +41,7 @@ with st.sidebar:
     lost_energy_price = st.slider('Lost energy price', 150, 500)
     surplus_energy_price = st.slider('Surplus energy price', 200000, 300000)
     prod_target = st.slider('Productivity target', 0.80, 0.99)
-    principal = wtg * power * load * price * 365 * 24 * 1000
+    principal = wtg * power_wtg * load_factor * energy_price * 365 * 24 * 1000
 
     # Datos de mantenimiento
     fr = st.slider('Failure rate', 1.0, 5.0, step=0.5, format="%.1f")
@@ -55,10 +55,10 @@ with st.sidebar:
 
     #DATOS CONOCIDOS (fijadas como datos estaticos por simplicidad)
     ctv_visibility, sov_visibility, heli_visibility = 0.15, 2, 3
-    ctv_wind, sov_wind, heli_wind = 20, 20, 20
-    ctv_wave, sov_wave, heli_wave = 1.75, 3, 6
+    ctv_wind_speed_150m, sov_wind_speed_150m, heli_wind_speed_150m = 20, 20, 20
+    ctv_sign_wave_height, sov_sign_wave_height, heli_sign_wave_height = 1.75, 3, 6
     ctv_precipitation, sov_precipitation, heli_precipitation = 7.6, 7.6, 2.5
-    ctv_ice, sov_ice, heli_ice = 0, 0, 0
+    ctv_ice_coverage, sov_ice_coverage, heli_ice_coverage = 0, 0, 0
     ctv_speed, sov_speed, heli_speed = 20, 15, 140
     ctv_transfer, sov_transfer, heli_transfer = 30, 45, 15
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
