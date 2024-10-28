@@ -38,7 +38,8 @@ with st.sidebar:
     corrective = st.slider('Corrective mean time (hours)', 1, 10)
     go_window = st.slider('Go Window', 1, 5)
     preventive = st.slider('Preventive/WTG time per year (hours)', 100, 250)
-    working_hours = st.time_input('Working hours', time(0, 0))
+    working_hours_start = st.time_input('Working hours - Start', time(6, 0))
+    working_hours_end = st.time_input('Working hours - End', time(18, 0))
     working_days = st.multiselect('Working days', ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'])
     temperature = st.slider('Working temperature limit', -5, 60)
 
