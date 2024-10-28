@@ -7,9 +7,7 @@ import streamlit as st
 
 
 from sklearn.preprocessing import OneHotEncoder
-
 from sklearn.linear_model import Ridge
-
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.compose import make_column_transformer
@@ -19,15 +17,7 @@ from sklearn.pipeline import make_pipeline
 
 # -------------------- DATOS METEOROLÓGICOS ------------------------------
 
-# Cargar un archivo con los datos meteorológicos a analizar
-archivo = st.file_uploader('Select a csv file')
 
-if archivo is not None:
-    df = pd.read_csv(archivo)
-    st.write(df)
-
-else:
-    st.write("Please upload a csv file to continue")
 
 
 # -------------------- CRITERIOS TRABAJO VEHÍCULOS ------------------------------
@@ -45,16 +35,10 @@ else:
 #3.VARIABLES Y REGISTROS FINALES
 
 # Botón para ejecutar el procesamiento
-    if st.button("Procesar datos"):
+df['date'] = pd.to_datetime(df[['Year', 'Month', 'Day']])
 
-        df['date'] = pd.to_datetime(df[['Year', 'Month', 'Day']])
-
-        # Muestra los datos con la nueva columna 'date'
-        st.write("Datos procesados con la columna 'date':")
-        st.write(df)
-
-#df['date'] = pd.to_datetime(df[['Year', 'Month', 'Day']])
-
+# Muestra los datos con la nueva columna 'date'
+st.write(df)
 
 #4.FUNCIONES DE SOPORTE
 
