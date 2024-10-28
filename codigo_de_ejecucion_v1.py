@@ -90,11 +90,11 @@ def procesar_datos(df, local_data):
         
     # ------------------------------ CTV -------------------------------------------------
     # Condiciones en las que un CTV puede trabajar
-    df['ctv_works'] = np.where((df['Visibility'] > ctv_visibility) &
-                                (df['Wind_speed_150m'] < ctv_wind_speed_150m) &
-                                (df['Sign._wave_height_(Hs)'] < ctv_sign_wave_height) &
-                                (df['Precipitation'] <= ctv_precipitation) & 
-                                (df['Ice_coverage'] == ctv_ice_coverage) &
+    df['ctv_works'] = np.where((df['Visibility'] > local_data['ctv_visibility']) &
+                                (df['Wind_speed_150m'] < local_data['ctv_wind_speed_150m']) &
+                                (df['Sign._wave_height_(Hs)'] < local_data['ctv_sign_wave_height']) &
+                                (df['Precipitation'] <= local_data['ctv_precipitation']) & 
+                                (df['Ice_coverage'] == local_data['ctv_ice_coverage']) &
 
                                  # Variables comunes 
                                 (df['date'].dt.weekday.isin(working_days)) &
@@ -105,32 +105,32 @@ def procesar_datos(df, local_data):
     
     # ------------------------------ SOV -------------------------------------------------
     # Condiciones en las que un SOV puede trabajar
-    df['sov_works'] = np.where((df['Visibility'] > sov_visibility) &
-                                (df['Wind_speed_150m'] < sov_wind_speed_150m) &
-                                (df['Sign._wave_height_(Hs)'] < sov_sign_wave_height) &
-                                (df['Precipitation'] <= sov_precipitation) & 
-                                (df['Ice_coverage'] == sov_ice_coverage) &
+    df['sov_works'] = np.where((df['Visibility'] > local_data['sov_visibility']) &
+                                (df['Wind_speed_150m'] < local_data['sov_wind_speed_150m']) &
+                                (df['Sign._wave_height_(Hs)'] < local_data['sov_sign_wave_height']) &
+                                (df['Precipitation'] <= local_data['sov_precipitation']) & 
+                                (df['Ice_coverage'] == local_data['sov_ice_coverage']) &
 
                                  # Variables comunes 
                                 (df['date'].dt.weekday.isin(working_days)) & 
-                                (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) &
+                                (df['Hour'] >= local_data['working_hours_start']) & (df['Hour'] <= local_data['working_hours_end']) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > temperature), 1,0)
+                                (df['Temperature_80m'] > local_data['temperature']), 1,0)
     
 
     # ------------------------------ HELICOPTER -------------------------------------------
     # Condiciones en las que un Helicopter puede trabajar
-    df['heli_works'] = np.where((df['Visibility'] > heli_visibility) &
-                                (df['Wind_speed_150m'] < heli_wind_speed_150m) &
-                                (df['Sign._wave_height_(Hs)'] < heli_sign_wave_height) &
-                                (df['Precipitation'] <= heli_precipitation) & 
-                                (df['Ice_coverage'] == heli_ice_coverage) &
+    df['heli_works'] = np.where((df['Visibility'] > local_data['heli_visibility']) &
+                                (df['Wind_speed_150m'] < local_data['heli_wind_speed_150m']) &
+                                (df['Sign._wave_height_(Hs)'] < local_data['heli_sign_wave_height']) &
+                                (df['Precipitation'] <= local_data['heli_precipitation']) & 
+                                (df['Ice_coverage'] == local_data['heli_ice_coverage']) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(working_days)) & 
-                                (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) &
+                                (df['date'].dt.weekday.isin(local_data['working_days'])) & 
+                                (df['Hour'] >= local_data['working_hours_start']) & (df['Hour'] <= local_data['working_hours_end']) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > temperature), 1,0)
+                                (df['Temperature_80m'] > local_data['temperature']), 1,0)
     
     # Agrupamos por día, año y localización
     df_work = df.groupby([df['date'].dt.date, 'Year', 'Month']).agg({
@@ -183,15 +183,15 @@ def procesar_datos(df, local_data):
     # Calculamos los tiempos de transporte, desembarco y embarco de cada vehículo
     # ---------------------------- CTV ---------------------------------------------------------
     df_work['ctv_transport_time'] = df_work.apply(lambda row:
-                                                (((row['distance_sea_port'] / ctv_speed) * 2) + # *2 viaje de ida y vuelta
+                                                (((row['distance_sea_port'] / local_data['ctv_speed']) * 2) + # *2 viaje de ida y vuelta
                                                 ((ctv_transfer) * 2)), axis=1)
     # ---------------------------- SOV ---------------------------------------------------------
     # SOV (utilizaremos solo el tiempo de un viaje de puerto al parque porque viaja cada 15 días)
     df_work['sov_transport_time'] = df_work.apply(lambda row:
-                                                ((row['distance_sea_port'] / sov_speed)), axis=1) # No sumamos '_transfer', lo haremos más adelante
+                                                ((row['distance_sea_port'] / local_data['sov_speed'])), axis=1) # No sumamos '_transfer', lo haremos más adelante
     # ---------------------------- Helicopter---------------------------------------------------
     df_work['heli_transport_time'] = df_work.apply(lambda row:
-                                                (((row['distance_heli_port'] / heli_speed) * 4) + # 1 viaje de ida y vuelta para llevar a los técnicos al parque
+                                                (((row['distance_heli_port'] / local_data['heli_speed']) * 4) + # 1 viaje de ida y vuelta para llevar a los técnicos al parque
                                                 ((heli_transfer) * 2)), axis=1)                   # 1 viaje de ida y vuelta para recoger a los técnicos del parque
 
 
