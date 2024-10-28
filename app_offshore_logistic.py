@@ -2,6 +2,7 @@ from codigo_de_ejecucion_v1 import *
 import streamlit as st
 from streamlit_echarts import st_echarts
 from datetime import time
+import pandas as pd
 
 
 #CONFIGURACION DE LA PÁGINA
@@ -44,51 +45,17 @@ with st.sidebar:
     temperature = st.slider('Working temperature limit', -5, 60)
 
     #DATOS CONOCIDOS (fijadas como datos estaticos por simplicidad)
-    ctv_visibility = 0.15
-    sov_visibility = 2
-    heli_visibility = 3
-
-    ctv_wind = 20
-    sov_wind = 20
-    heli_wind = 20
-
-    ctv_wave = 1.75
-    sov_wave = 3
-    heli_wave = 6
-
+    ctv_visibility, sov_visibility, heli_visibility = 0.15, 2, 3
+    ctv_wind, sov_wind, heli_wind = 20, 20, 20
+    ctv_wave, sov_wave, heli_wave = 1.75, 3, 6
     #ctv_precipitation = 'moderate between 2.5 and 7.6 mm/h'
     #sov_precipitation = 'moderate between 2.5 and 7.6 mm/h'
     #heli_precipitation = 'light less than 2.5'
-
-    ctv_ice = 0
-    sov_ice = 0
-    heli_ice = 0
-
-    ctv_speed = 20
-    sov_speed = 15
-    heli_speed = 140
-
-    ctv_transfer = 30
-    sov_transfer = 45
-    heli_transfer = 15
-
-    ctv_emissions = 938
-    sov_emissions = 8040
-    heli_emissions = 625
-
-    ctv_cost = 6500
-    sov_cost = 35000
-    heli_cost = 10900
-
-
-# Verificar y mostrar valores que están vacíos o son None
-valores_vacios = {k: v for k, v in variables.items() if v is None or (isinstance(v, list) and not v)}
-if valores_vacios:
-    st.write("Algunos valores están vacíos o no han sido proporcionados:", valores_vacios)
-else:
-    # Si todos los valores están definidos, crear el DataFrame
-    registro = pd.DataFrame({k: [v] for k, v in variables.items()})
-    st.write("Registro creado con éxito:", registro)
+    ctv_ice, sov_ice, heli_ice = 0, 0, 0
+    ctv_speed, sov_speed, heli_speed = 20, 15, 140
+    ctv_transfer, sov_transfer, heli_transfer = 30, 45, 15
+    ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
+    ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
 
 #MAIN
@@ -98,7 +65,7 @@ st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
 #CALCULAR
 
 #Crear el registro
-""" registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
+variables = {'location_osw_lat':[location_osw_lat],
                          'location_osw_lon':[location_osw_lon],
                          'location_sea_port_lat':[location_sea_port_lat],
                          'location_sea_port_lon':[location_sea_port_lon],
@@ -149,8 +116,16 @@ st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
                          'sov_cost':[sov_cost],
                          'heli_cost':[heli_cost],
                          }
-                        ,index=[0]) """
 
+
+# Verificar y mostrar valores vacíos
+valores_vacios = {k: v for k, v in variables.items() if v is None}
+if valores_vacios:
+    st.write("Algunos valores están vacíos o no han sido proporcionados:", valores_vacios)
+else:
+    # Crear el DataFrame
+    registro = pd.DataFrame({k: [v] for k, v in variables.items()})
+    st.write("Registro creado con éxito:", registro)
 
 """ #CALCULAR RIESGO
 if st.sidebar.button('CALCULATE BEST OPTION'):
