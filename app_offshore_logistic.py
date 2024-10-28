@@ -64,9 +64,6 @@ with st.sidebar:
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
     ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
-# Mensaje de verificación en caso de que no se cargue un archivo
-#if uploaded_file is None:
-#    st.write("Please, upload a CSV file to continue.")
 
 #CALCULAR
 
@@ -125,6 +122,10 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          })
 
     st.write("Registro creado con éxito:", registro)
+
+    # Mensaje de verificación en caso de que no se cargue un archivo
+    if uploaded_file is None:
+        st.write("Please, upload meteorolgic data to continue.")
 
 
 #CALCULAR RIESGO
