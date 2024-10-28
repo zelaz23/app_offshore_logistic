@@ -116,13 +116,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'heli_cost':[heli_cost],
                          })
 
-
     st.write("Registro creado con éxito:", registro)
 
 
 #CALCULAR RIESGO
 
-    """ 
     #Ejecutar el scoring
     ctv_EL = ejecutar_modelos(registro)
     sov_EL = ejecutar_modelos(registro)
@@ -220,7 +218,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.metric(label="CO2 EMISSIONS", value = sov_emissions)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissions) """
+        st.metric(label="CO2 EMISSIONS", value = heli_emissions) """ """
 
-""" else:
-    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE') """
+else:
+    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
