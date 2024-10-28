@@ -80,6 +80,17 @@ with st.sidebar:
     sov_cost = 35000
     heli_cost = 10900 """
 
+
+# Verificar y mostrar valores que están vacíos o son None
+valores_vacios = {k: v for k, v in variables.items() if v is None or (isinstance(v, list) and not v)}
+if valores_vacios:
+    st.write("Algunos valores están vacíos o no han sido proporcionados:", valores_vacios)
+else:
+    # Si todos los valores están definidos, crear el DataFrame
+    registro = pd.DataFrame({k: [v] for k, v in variables.items()})
+    st.write("Registro creado con éxito:", registro)
+
+
 #MAIN
 st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
 
