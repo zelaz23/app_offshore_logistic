@@ -48,9 +48,7 @@ with st.sidebar:
     ctv_visibility, sov_visibility, heli_visibility = 0.15, 2, 3
     ctv_wind, sov_wind, heli_wind = 20, 20, 20
     ctv_wave, sov_wave, heli_wave = 1.75, 3, 6
-    ctv_precipitation = 7.6
-    sov_precipitation = 7.6
-    heli_precipitation = 2.5
+    ctv_precipitation, sov_precipitation, heli_precipitation = 7.6, 7.6, 2.5
     ctv_ice, sov_ice, heli_ice = 0, 0, 0
     ctv_speed, sov_speed, heli_speed = 20, 15, 140
     ctv_transfer, sov_transfer, heli_transfer = 30, 45, 15
