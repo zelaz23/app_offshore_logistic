@@ -130,7 +130,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
 #CALCULAR RIESGO
 
-    #Ejecutar el scoring
+    #Ejecutar codigo_de_ejecucion_v1
+
+
+
+"""     #Ejecutar el scoring
     ctv_EL = ejecutar_modelos(registro)
     sov_EL = ejecutar_modelos(registro)
     heli_EL = ejecutar_modelos(registro)
@@ -148,7 +152,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Calcular los kpis para Helicopter
     kpi_heli_pd = int(heli_EL.pd * 100)
     kpi_heli_lgd = int(heli_EL.lgd * 100)
-    kpi_heli_el = int(heli_EL.principal * heli_EL.pd * heli_EL.lgd)
+    kpi_heli_el = int(heli_EL.principal * heli_EL.pd * heli_EL.lgd) """
 
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
