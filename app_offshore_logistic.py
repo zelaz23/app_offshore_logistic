@@ -157,7 +157,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
-    ctv_options = {
+"""     ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
             "series": [
                 {
@@ -231,7 +231,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.metric(label="CO2 EMISSIONS", value = sov_emissions)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissions)
+        st.metric(label="CO2 EMISSIONS", value = heli_emissions) """
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
