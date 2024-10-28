@@ -131,7 +131,9 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 #CALCULAR RIESGO
 
     #Ejecutar codigo_de_ejecucion_v1
-
+        # Procesar los datos cargados
+    df_procesado = procesar_datos(df)
+    st.write("Data after processing:", df_procesado)
 
 
 """     #Ejecutar el scoring

@@ -34,11 +34,15 @@ from sklearn.pipeline import make_pipeline
 
 #3.VARIABLES Y REGISTROS FINALES
 
-# Botón para ejecutar el procesamiento
-df['date'] = pd.to_datetime(df[['Year', 'Month', 'Day']])
+def procesar_datos(df):
+    # Aquí, se aplicarían los pasos de limpieza y procesamiento de datos
+    # Ejemplo de pasos de procesamiento:
+    df['date'] = pd.to_datetime(df[['Year', 'Month', 'Day']])
+    # Añade otras transformaciones necesarias
+    return df  # Retorna el DataFrame procesado
 
-# Muestra los datos con la nueva columna 'date'
-st.write(df)
+
+
 
 #4.FUNCIONES DE SOPORTE
 
