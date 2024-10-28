@@ -35,7 +35,7 @@ with st.sidebar:
     principal = wtg * power * load * price * 365 * 24 * 1000
 
     # Datos de mantenimiento
-    fr = st.slider('Failure rate', 1, 5)
+    fr = st.slider('Failure rate', 1, 5, format="%.1f")
     corrective = st.slider('Corrective mean time (hours)', 1, 10)
     go_window = st.slider('Go Window', 1, 5)
     preventive = st.slider('Preventive/WTG time per year (hours)', 100, 250)
@@ -120,7 +120,7 @@ registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
 st.write("Registro creado con éxito:", registro)
 
 
-""" #CALCULAR RIESGO
+#CALCULAR RIESGO
 if st.sidebar.button('CALCULATE BEST OPTION'):
     #Ejecutar el scoring
     ctv_EL = ejecutar_modelos(registro)
@@ -222,4 +222,4 @@ if st.sidebar.button('CALCULATE BEST OPTION'):
         st.metric(label="CO2 EMISSIONS", value = heli_emissiones)
 
 else:
-    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE') """
+    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
