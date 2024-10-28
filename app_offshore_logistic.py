@@ -213,13 +213,13 @@ if st.sidebar.button('CALCULATE BEST OPTION'):
     col1,col2,col3 = st.columns(3)
     with col1:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = ctv_emissiones)
+        st.metric(label="CO2 EMISSIONS", value = ctv_emissions)
     with col2:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = sov_emissiones)
+        st.metric(label="CO2 EMISSIONS", value = sov_emissions)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissiones)
+        st.metric(label="CO2 EMISSIONS", value = heli_emissions)
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
