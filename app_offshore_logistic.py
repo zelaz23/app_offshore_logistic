@@ -35,7 +35,7 @@ with st.sidebar:
     principal = wtg * power * load * price * 365 * 24 * 1000
 
     # Datos de mantenimiento
-    fr = st.slider('Failure rate', 1, 5, format="%.1f")
+    fr = st.slider('Failure rate', 1.0, 5.0, step=0.5, format="%.1f")
     corrective = st.slider('Corrective mean time (hours)', 1, 10)
     go_window = st.slider('Go Window', 1, 5)
     preventive = st.slider('Preventive/WTG time per year (hours)', 100, 250)
