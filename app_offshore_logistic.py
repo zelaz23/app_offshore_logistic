@@ -64,7 +64,9 @@ with st.sidebar:
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
     ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
-    #st.sidebar.button("CALCULATE BEST OPTION")
+# Mensaje de verificación en caso de que no se cargue un archivo
+if uploaded_file is None:
+    st.write("Please, upload a CSV file to continue.")
 
 #CALCULAR
 
