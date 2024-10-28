@@ -65,7 +65,6 @@ with st.sidebar:
 #Crear el registro
 
 if st.sidebar.button('CALCULATE BEST OPTION'):
-    st.write("Botón presionado. Creando registro...")  # Mensaje de verificación
     registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
                          'location_osw_lon':[location_osw_lon],
                          'location_sea_port_lat':[location_sea_port_lat],
