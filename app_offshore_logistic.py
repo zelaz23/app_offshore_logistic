@@ -65,8 +65,8 @@ st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
 #CALCULAR
 
 #Crear el registro
-try:
-    variables = {'location_osw_lat':[location_osw_lat],
+
+registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
                          'location_osw_lon':[location_osw_lon],
                          'location_sea_port_lat':[location_sea_port_lat],
                          'location_sea_port_lon':[location_sea_port_lon],
@@ -116,16 +116,10 @@ try:
                          'ctv_cost':[ctv_cost],
                          'sov_cost':[sov_cost],
                          'heli_cost':[heli_cost],
-                         }
+                         })
 
 
-    # Crear el DataFrame directamente con el diccionario
-    registro = pd.DataFrame(variables)
-    st.write("Registro creado con éxito:", registro)
-
-except NameError as e:
-    st.error(f"Error: {e}")
-    st.write("Verifica que todas las variables estén inicializadas correctamente en el código.")
+st.write("Registro creado con éxito:", registro)
 
 
 """ #CALCULAR RIESGO
