@@ -25,7 +25,7 @@ import streamlit as st
 
 # Creamos la función "procesar_datos" para realizar todas las operaciones y cálculos necesarios sobre el dataframe
 
-def procesar_datos(df):
+def procesar_datos(df, local_data):
     # Aquí, se aplicarían los pasos de limpieza y procesamiento de datos
     # Ejemplo de pasos de procesamiento:
     df['date'] = pd.to_datetime(df[['Year', 'Month', 'Day']])
