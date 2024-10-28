@@ -121,8 +121,30 @@ st.write("Registro creado con éxito:", registro)
 
 
 #CALCULAR RIESGO
-# if st.sidebar.button('CALCULATE BEST OPTION'):
-if st.button('CALCULATE BEST OPTION'):
+
+if st.sidebar.button('CALCULATE BEST OPTION'):
+    #Velocimetro para SOV
+    sov_options = {
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "series": [
+                {
+                    "name": "Expected Lost",
+                    "type": "gauge",
+                    "axisLine": {
+                        "lineStyle": {
+                            "width": 10,
+                        },
+                    },
+                    "progress": {"show": "true", "width": 10},
+                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
+                    "data": [{"value": 87, "name": "PD"}],
+                }
+            ],
+        }
+
+
+
+    """ 
     #Ejecutar el scoring
     ctv_EL = ejecutar_modelos(registro)
     sov_EL = ejecutar_modelos(registro)
@@ -220,7 +242,7 @@ if st.button('CALCULATE BEST OPTION'):
         st.metric(label="CO2 EMISSIONS", value = sov_emissions)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissions)
+        st.metric(label="CO2 EMISSIONS", value = heli_emissions) """
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
