@@ -141,7 +141,7 @@ registro = pd.DataFrame({'location_osw_lat':location_osw_lat,
                         ,index=[0])
 
 
-#CALCULAR RIESGO
+""" #CALCULAR RIESGO
 if st.sidebar.button('CALCULATE BEST OPTION'):
     #Ejecutar el scoring
     ctv_EL = ejecutar_modelos(registro)
@@ -243,4 +243,4 @@ if st.sidebar.button('CALCULATE BEST OPTION'):
         st.metric(label="CO2 EMISSIONS", value = heli_emissiones)
 
 else:
-    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
+    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE') """
