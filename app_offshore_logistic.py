@@ -58,7 +58,7 @@ with st.sidebar:
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
     ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
-    st.sidebar.button("CALCULATE BEST OPTION")
+    #st.sidebar.button("CALCULATE BEST OPTION")
 
 #CALCULAR
 
