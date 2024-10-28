@@ -5,13 +5,6 @@ from datetime import time
 import pandas as pd
 
 
-import streamlit as st
-
-st.sidebar.button("CALCULATE BEST OPTION")
-
-
-
-
 #CONFIGURACION DE LA PÁGINA
 st.set_page_config(
      page_title = 'Offshore Wind Farm Logistic Analyzer',
@@ -21,7 +14,7 @@ st.set_page_config(
 #MAIN
 st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
 
-""" #SIDEBAR
+#SIDEBAR
 with st.sidebar:
     st.image('image4.png')
 
@@ -65,7 +58,7 @@ with st.sidebar:
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
     ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
-
+st.sidebar.button("CALCULATE BEST OPTION")
 
 #CALCULAR
 
@@ -128,7 +121,7 @@ if st.sidebar.button('CALCULATE BEST OPTION'):
 
     st.write("Registro creado con éxito:", registro)
 
- """
+
 #CALCULAR RIESGO
 
 # if st.sidebar.button('CALCULATE BEST OPTION'):
