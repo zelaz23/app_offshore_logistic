@@ -1,6 +1,8 @@
 from codigo_de_ejecucion_v1 import *
 import streamlit as st
 from streamlit_echarts import st_echarts
+from datetime import time
+
 
 #CONFIGURACION DE LA PÁGINA
 st.set_page_config(
