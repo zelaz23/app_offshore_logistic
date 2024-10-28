@@ -119,12 +119,12 @@ variables = {'location_osw_lat':[location_osw_lat],
 
 
 # Verificar y mostrar valores vacíos
-valores_vacios = {k: v for k, v in variables.items() if v is None}
+valores_vacios = {k: v for k, v in variables.items() if v[0] is None}
 if valores_vacios:
     st.write("Algunos valores están vacíos o no han sido proporcionados:", valores_vacios)
 else:
-    # Crear el DataFrame
-    registro = pd.DataFrame({k: [v] for k, v in variables.items()})
+    # Crear el DataFrame directamente con el diccionario
+    registro = pd.DataFrame(variables)
     st.write("Registro creado con éxito:", registro)
 
 """ #CALCULAR RIESGO
