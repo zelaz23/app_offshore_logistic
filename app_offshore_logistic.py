@@ -26,20 +26,20 @@ with st.sidebar:
 
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
-    location_osw_lat = st.number_input('OSW  Location lat', -90.000, 90.000, format="%.3f")
-    location_osw_lon = st.number_input('OSW  Location lon', -180.000, 180.000, format="%.3f")
-    location_sea_port_lat = st.number_input('Sea Port lat', -90.000, 90.000, format="%.3f")
-    location_sea_port_lon = st.number_input('Sea Port lon', -180.000, 180.000, format="%.3f")
-    location_heli_port_lat = st.number_input('Heli Port lat', -90.000, 90.000, format="%.3f")
-    location_heli_port_lon = st.number_input('Heli Port lon', -180.000, 180.000, format="%.3f")
+    lat_OSW = st.number_input('OSW  Location lat', -90.000, 90.000, format="%.3f")
+    lon_OSW = st.number_input('OSW  Location lon', -180.000, 180.000, format="%.3f")
+    lat_sea_port = st.number_input('Sea Port lat', -90.000, 90.000, format="%.3f")
+    lon_sea_port = st.number_input('Sea Port lon', -180.000, 180.000, format="%.3f")
+    lat_heli_port = st.number_input('Heli Port lat', -90.000, 90.000, format="%.3f")
+    lon_heli_port = st.number_input('Heli Port lon', -180.000, 180.000, format="%.3f")
     
     # Datos de la instalacion
     wtg = st.number_input('WTG installed', 1, 200)
-    power = st.slider('Power/WTG (MW)', 1, 20)
-    load = st.slider('Load Factor', 0.2, 0.8)
-    price = st.slider('Energy price', 0.10, 0.50)
-    lost_ener_price = st.slider('Lost energy price', 150, 500)
-    surplus_ener_price = st.slider('Surplus energy price', 200000, 300000)
+    power_wtg = st.slider('Power/WTG (MW)', 1, 20)
+    load_factor = st.slider('Load Factor', 0.2, 0.8)
+    energy_price = st.slider('Energy price', 0.10, 0.50)
+    lost_energy_price = st.slider('Lost energy price', 150, 500)
+    surplus_energy_price = st.slider('Surplus energy price', 200000, 300000)
     prod_target = st.slider('Productivity target', 0.80, 0.99)
     principal = wtg * power * load * price * 365 * 24 * 1000
 
@@ -62,7 +62,7 @@ with st.sidebar:
     ctv_speed, sov_speed, heli_speed = 20, 15, 140
     ctv_transfer, sov_transfer, heli_transfer = 30, 45, 15
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
-    ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
+    ctv_day_cost, sov_day_cost, heli_day_cost = 6500, 35000, 10900
 
 
 #CALCULAR
@@ -70,18 +70,18 @@ with st.sidebar:
 #Crear el registro
 
 if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
-    registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
-                         'location_osw_lon':[location_osw_lon],
-                         'location_sea_port_lat':[location_sea_port_lat],
-                         'location_sea_port_lon':[location_sea_port_lon],
-                         'location_heli_port_lat':[location_heli_port_lat],
-                         'location_heli_port_lon':[location_heli_port_lon],
+    local_data = pd.DataFrame({'lat_OSW':[lat_OSW],
+                         'lon_OSW':[lon_OSW],
+                         'lat_sea_port':[lat_sea_port],
+                         'lon_sea_port':[lon_sea_port],
+                         'lat_heli_port':[lat_heli_port],
+                         'lon_heli_port':[lon_heli_port],
                          'wtg':[wtg],
-                         'power':[power],
-                         'load':[load],
-                         'price':[price],
-                         'lost_ener_price':[lost_ener_price],
-                         'surplus_ener_price':[surplus_ener_price],
+                         'power_wtg':[power_wtg],
+                         'load_factor':[load_factor],
+                         'energy_price':[energy_price],
+                         'lost_energy_price':[lost_energy_price],
+                         'surplus_energy_price':[surplus_energy_price],
                          'prod_target':[prod_target],
                          'principal':[principal],
                          'fr':[fr],
@@ -116,12 +116,12 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'ctv_emissions':[ctv_emissions],
                          'sov_emissions':[sov_emissions],
                          'heli_emissions':[heli_emissions],
-                         'ctv_cost':[ctv_cost],
-                         'sov_cost':[sov_cost],
-                         'heli_cost':[heli_cost],
+                         'ctv_day_cost':[ctv_day_cost],
+                         'sov_day_cost':[sov_day_cost],
+                         'heli_day_cost':[heli_day_cost],
                          })
 
-    st.write("Registro creado con éxito:", registro)
+    st.write("Registered sucessfully:", local_data)
 
     # Mensaje de verificación en caso de que no se cargue un archivo
     if uploaded_file is None:
