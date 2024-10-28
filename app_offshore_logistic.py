@@ -65,7 +65,8 @@ st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
 #CALCULAR
 
 #Crear el registro
-variables = {'location_osw_lat':[location_osw_lat],
+try:
+    variables = {'location_osw_lat':[location_osw_lat],
                          'location_osw_lon':[location_osw_lon],
                          'location_sea_port_lat':[location_sea_port_lat],
                          'location_sea_port_lon':[location_sea_port_lon],
@@ -118,14 +119,14 @@ variables = {'location_osw_lat':[location_osw_lat],
                          }
 
 
-# Verificar y mostrar valores vacíos
-valores_vacios = {k: v for k, v in variables.items() if v[0] is None}
-if valores_vacios:
-    st.write("Algunos valores están vacíos o no han sido proporcionados:", valores_vacios)
-else:
     # Crear el DataFrame directamente con el diccionario
     registro = pd.DataFrame(variables)
     st.write("Registro creado con éxito:", registro)
+
+except NameError as e:
+    st.error(f"Error: {e}")
+    st.write("Verifica que todas las variables estén inicializadas correctamente en el código.")
+
 
 """ #CALCULAR RIESGO
 if st.sidebar.button('CALCULATE BEST OPTION'):
