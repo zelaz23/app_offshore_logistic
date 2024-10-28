@@ -87,7 +87,7 @@ st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
 #CALCULAR
 
 #Crear el registro
-registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
+""" registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
                          'location_osw_lon':[location_osw_lon],
                          'location_sea_port_lat':[location_sea_port_lat],
                          'location_sea_port_lon':[location_sea_port_lon],
@@ -138,7 +138,7 @@ registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
                          'sov_cost':[sov_cost],
                          'heli_cost':[heli_cost],
                          }
-                        ,index=[0])
+                        ,index=[0]) """
 
 
 """ #CALCULAR RIESGO
