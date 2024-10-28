@@ -109,7 +109,6 @@ if st.sidebar.button('CALCULATE BEST OPTION'):
                          'ctv_transfer':[ctv_transfer],
                          'sov_transfer':[sov_transfer],
                          'heli_transfer':[heli_transfer],
-                         'heli_wind':[heli_wind],
                          'ctv_emissions':[ctv_emissions],
                          'sov_emissions':[sov_emissions],
                          'heli_emissions':[heli_emissions],
