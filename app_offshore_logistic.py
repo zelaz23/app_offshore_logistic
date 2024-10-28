@@ -19,10 +19,10 @@ with st.sidebar:
     st.image('image4.png')
 
     # Cargar archivo CSV con los datos meteorologicos de la zona a analizar
-    uploaded_file = st.file_uploader("Upload CSV file", type="csv", key="file_upload")
+    uploaded_file = st.file_uploader("Upload meteorologic data", type="csv", key="file_upload")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file, sep=';')
-        st.write("File uploaded succesfully: ")
+        st.write("File uploaded succesfully")
 
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
@@ -65,8 +65,8 @@ with st.sidebar:
     ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
 # Mensaje de verificación en caso de que no se cargue un archivo
-if uploaded_file is None:
-    st.write("Please, upload a CSV file to continue.")
+#if uploaded_file is None:
+#    st.write("Please, upload a CSV file to continue.")
 
 #CALCULAR
 
