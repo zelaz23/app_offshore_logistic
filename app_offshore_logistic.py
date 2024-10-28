@@ -121,7 +121,8 @@ st.write("Registro creado con éxito:", registro)
 
 
 #CALCULAR RIESGO
-if st.sidebar.button('CALCULATE BEST OPTION'):
+# if st.sidebar.button('CALCULATE BEST OPTION'):
+if st.button('CALCULATE BEST OPTION'):
     #Ejecutar el scoring
     ctv_EL = ejecutar_modelos(registro)
     sov_EL = ejecutar_modelos(registro)
