@@ -43,7 +43,7 @@ with st.sidebar:
     working_days = st.multiselect('Working days', ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'])
     temperature = st.slider('Working temperature limit', -5, 60)
 
-    #DATOS CONOCIDOS (fijadas como datos estaticos por simplicidad)
+"""     #DATOS CONOCIDOS (fijadas como datos estaticos por simplicidad)
     ctv_visibility = 0.15
     sov_visibility = 2
     heli_visibility = 3
@@ -78,7 +78,7 @@ with st.sidebar:
 
     ctv_cost = 6500
     sov_cost = 35000
-    heli_cost = 10900
+    heli_cost = 10900 """
 
 #MAIN
 st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
