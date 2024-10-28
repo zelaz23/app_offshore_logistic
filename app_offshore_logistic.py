@@ -48,9 +48,9 @@ with st.sidebar:
     ctv_visibility, sov_visibility, heli_visibility = 0.15, 2, 3
     ctv_wind, sov_wind, heli_wind = 20, 20, 20
     ctv_wave, sov_wave, heli_wave = 1.75, 3, 6
-    #ctv_precipitation = 'moderate between 2.5 and 7.6 mm/h'
-    #sov_precipitation = 'moderate between 2.5 and 7.6 mm/h'
-    #heli_precipitation = 'light less than 2.5'
+    ctv_precipitation = 7.6
+    sov_precipitation = 7.6
+    heli_precipitation = 2.5
     ctv_ice, sov_ice, heli_ice = 0, 0, 0
     ctv_speed, sov_speed, heli_speed = 20, 15, 140
     ctv_transfer, sov_transfer, heli_transfer = 30, 45, 15
@@ -97,9 +97,9 @@ registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
                          'ctv_wave':[ctv_wave],
                          'sov_wave':[sov_wave],
                          'heli_wave':[heli_wave],
-                         #'ctv_precipitation':[ctv_precipitation],
-                         #'sov_precipitation':[sov_precipitation],
-                         #'heli_precipitation':[heli_precipitation],
+                         'ctv_precipitation':[ctv_precipitation],
+                         'sov_precipitation':[sov_precipitation],
+                         'heli_precipitation':[heli_precipitation],
                          'ctv_ice':[ctv_ice],
                          'sov_ice':[sov_ice],
                          'heli_ice':[heli_ice],
