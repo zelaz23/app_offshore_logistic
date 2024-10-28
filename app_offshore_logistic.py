@@ -21,8 +21,8 @@ with st.sidebar:
     # Cargar archivo CSV con los datos meteorologicos de la zona a analizar
     uploaded_file = st.file_uploader("Upload CSV file", type="csv", key="file_upload")
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        st.write("File uploaded succesfully: ", df)
+        df = pd.read_csv(uploaded_file, sep=';')
+        st.write("File uploaded succesfully: ")
 
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
