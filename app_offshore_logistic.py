@@ -233,5 +233,5 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.write('Anual expected CO2 emissions:')
         st.metric(label="CO2 EMISSIONS", value = heli_emissions) """
 
-else:
-    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
+""" else:
+    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE') """
