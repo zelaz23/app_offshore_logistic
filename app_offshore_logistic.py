@@ -27,13 +27,13 @@ with st.sidebar:
     location_heli_port_lat = st.number_input('Heli Port lat', -90.000, 90.000, format="%.3f")
     location_heli_port_lon = st.number_input('Heli Port lon', -180.000, 180.000, format="%.3f")
     
-    # Datos de la instalación
+    # Datos de la instalacion
     wtg = st.number_input('WTG installed', 1, 200)
     power = st.slider('Power/WTG (MW)', 1, 20)
     load = st.slider('Load Factor', 0.2, 0.8)
     price = st.slider('Energy price', 0.10, 0.50)
     lost_ener_price = st.slider('Lost energy price', 150, 500)
-    surplus_ener_price = st.slider('Surplus energy price', 200000, 1000000)
+    surplus_ener_price = st.slider('Surplus energy price', 200000, 300000)
     prod_target = st.slider('Productivity target', 0.80, 0.99)
     principal = wtg * power * load * price * 365 * 24 * 1000
 
@@ -58,7 +58,7 @@ with st.sidebar:
     ctv_emissions, sov_emissions, heli_emissions = 938, 8040, 625
     ctv_cost, sov_cost, heli_cost = 6500, 35000, 10900
 
-st.sidebar.button("CALCULATE BEST OPTION")
+    st.sidebar.button("CALCULATE BEST OPTION")
 
 #CALCULAR
 
