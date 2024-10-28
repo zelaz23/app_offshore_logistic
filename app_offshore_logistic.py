@@ -16,10 +16,10 @@ with st.sidebar:
     # Coordenadas de las ubicaciones
     location_osw_lat = st.number_input('OSW  Location lat', -90, 90)
     location_osw_lon = st.number_input('OSW  Location lon', -180, 180)
-    location_sea_port_lat = st.number_input('OSW  Location lat', -90, 90)
-    location_sea_port_lon = st.number_input('OSW  Location lon', -180, 180)
-    location_heli_port_lat = st.number_input('OSW  Location lat', -90, 90)
-    location_heli_port_lon = st.number_input('OSW  Location lon', -180, 180)
+    location_sea_port_lat = st.number_input('Sea Port lat', -90, 90)
+    location_sea_port_lon = st.number_input('Sea Port lon', -180, 180)
+    location_heli_port_lat = st.number_input('Heli port lat', -90, 90)
+    location_heli_port_lon = st.number_input('Heli port lon', -180, 180)
     
     # Datos de la instalación
     wtg = st.number_input('WTG installed', 1, 200)
