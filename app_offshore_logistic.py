@@ -20,12 +20,12 @@ with st.sidebar:
     location_osw_lon = st.number_input('OSW  Location lon', -180.000, 180.000, format="%.3f")
     location_sea_port_lat = st.number_input('Sea Port lat', -90.000, 90.000, format="%.3f")
     location_sea_port_lon = st.number_input('Sea Port lon', -180.000, 180.000, format="%.3f")
-    location_heli_port_lat = st.number_input('Heli port lat', -90.000, 90.000, format="%.3f")
-    location_heli_port_lon = st.number_input('Heli port lon', -180.000, 180.000, format="%.3f")
+    location_heli_port_lat = st.number_input('Heli Port lat', -90.000, 90.000, format="%.3f")
+    location_heli_port_lon = st.number_input('Heli Port lon', -180.000, 180.000, format="%.3f")
     
     # Datos de la instalación
     wtg = st.number_input('WTG installed', 1, 200)
-    power = st.number_input('Power/WTG (MW)', 1, 20)
+    power = st.slider('Power/WTG (MW)', 1, 20)
     load = st.slider('Load Factor', 0.2, 0.8)
     price = st.slider('Energy price', 0.10, 0.50)
     lost_ener_price = st.slider('Lost energy price', 150, 500)
@@ -56,9 +56,9 @@ with st.sidebar:
     sov_wave = 3
     heli_wave = 6
 
-    ctv_precipitation = 'moderate between 2.5 and 7.6 mm/h'
-    sov_precipitation = 'moderate between 2.5 and 7.6 mm/h'
-    heli_precipitation = 'light less than 2.5'
+    #ctv_precipitation = 'moderate between 2.5 and 7.6 mm/h'
+    #sov_precipitation = 'moderate between 2.5 and 7.6 mm/h'
+    #heli_precipitation = 'light less than 2.5'
 
     ctv_ice = 0
     sov_ice = 0
@@ -118,9 +118,9 @@ registro = pd.DataFrame({'location_osw_lat':[location_osw_lat],
                          'ctv_wave':[ctv_wave],
                          'sov_wave':[sov_wave],
                          'heli_wave':[heli_wave],
-                         'ctv_precipitation':[ctv_precipitation],
-                         'sov_precipitation':[sov_precipitation],
-                         'heli_precipitation':[heli_precipitation],
+                         #'ctv_precipitation':[ctv_precipitation],
+                         #'sov_precipitation':[sov_precipitation],
+                         #'heli_precipitation':[heli_precipitation],
                          'ctv_ice':[ctv_ice],
                          'sov_ice':[sov_ice],
                          'heli_ice':[heli_ice],
