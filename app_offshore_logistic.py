@@ -185,6 +185,12 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Velocimetro para CTV
     ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
+            "title": {
+            "text": heli_emissions_str,
+            "left": "center",
+            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "textStyle": {"fontSize": 16, "fontWeight": "bold"}
+            },
             "series": [
                 {
                     "name": "Revenue",
