@@ -239,7 +239,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
-            "text": heli_EL_str,
+            "text": heli_EL_str + '€',
             "left": "center",
             "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
@@ -285,4 +285,4 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.metric(value = heli_emissions)
 
 else:
-    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
+    st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
