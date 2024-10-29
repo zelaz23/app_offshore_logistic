@@ -188,7 +188,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
             "title": {
             "text": ctv_emissions_str,
             "left": "center",
-            "top": "100%",  # Ubica el texto en la parte inferior del gauge
+            "top": "90%",  # Ubica el texto en la parte inferior del gauge
             "textStyle": {"fontSize": 16, "fontWeight": "bold"}
             },
             "series": [
@@ -209,7 +209,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
             "title": {
             "text": sov_emissions_str,
             "left": "center",
-            "top": "100%",  # Ubica el texto en la parte inferior del gauge
+            "top": "70%",  # Ubica el texto en la parte inferior del gauge
             "textStyle": {"fontSize": 16, "fontWeight": "bold"}
             },
             "series": [
@@ -230,7 +230,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
             "title": {
             "text": heli_emissions_str,
             "left": "center",
-            "top": "100%",  # Ubica el texto en la parte inferior del gauge
+            "top": "80%",  # Ubica el texto en la parte inferior del gauge
             "textStyle": {"fontSize": 16, "fontWeight": "bold"}
             },
             "series": [
