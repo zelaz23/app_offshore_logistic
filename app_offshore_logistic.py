@@ -257,7 +257,15 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.image("image_ctv.png", width=250)
+        #st.image("image_ctv.png", width=250)
+        st.markdown(
+            """
+            <div style="text-align: center;">
+            <img src="image_ctv.png" alt="CTV Image" style="width:250px; height:200px;">
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
