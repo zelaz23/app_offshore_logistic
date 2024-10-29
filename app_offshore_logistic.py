@@ -178,12 +178,12 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #sov_emissions_str = f"{round(sov_emissions):,}"
     #heli_emissions_str = f"{round(heli_emissions):,}"
 
-    """def format_value(value):
+    def format_value(value):
         if value >= 1_000_000:
             return f"{value / 1_000_000}M"
         elif value >= 1_000:
             return f"{value / 1_000}K"
-        return str(value) """
+        return str(value)
 
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
