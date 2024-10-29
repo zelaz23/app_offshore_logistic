@@ -136,30 +136,30 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     st.write("Data after processing:", df_procesado)
 
 
-"""     #Ejecutar el scoring
-    ctv_EL = ejecutar_modelos(registro)
-    sov_EL = ejecutar_modelos(registro)
-    heli_EL = ejecutar_modelos(registro)
+    #Ejecutar el scoring
+    df_procesado = df_procesado.groupby(['Year']).agg({
+                    'ctv_expec_lost': 'sum',
+                    'sov_expec_lost':'sum',
+                    'heli_expec_lost':'sum'}).reset_index()
+    
+    ctv_EL = df_procesado['ctv_expec_lost'].mean()
+    sov_EL = df_procesado['sov_expec_lost'].mean()
+    heli_EL = df_procesado['heli_expec_lost'].mean()
 
-    #Calcular los kpis para CTV
-    kpi_ctv_pd = int(ctv_EL.pd * 100)
-    kpi_ctv_lgd = int(ctv_EL.lgd * 100)
-    kpi_ctv_el = int(ctv_EL.principal * ctv_EL.pd * ctv_EL.lgd)
-
-    #Calcular los kpis para SOV
-    kpi_sov_pd = int(sov_EL.pd * 100)
-    kpi_sov_lgd = int(sov_EL.lgd * 100)
-    kpi_sov_el = int(sov_EL.principal * sov_EL.pd * sov_EL.lgd)
-
-    #Calcular los kpis para Helicopter
-    kpi_heli_pd = int(heli_EL.pd * 100)
-    kpi_heli_lgd = int(heli_EL.lgd * 100)
-    kpi_heli_el = int(heli_EL.principal * heli_EL.pd * heli_EL.lgd) """
+    #Calcular las emisiones de CO2
+        df_procesado = df_procesado.groupby(['Year']).agg({
+                    'ctv_emissions': 'sum',
+                    'sov_emissions':'sum',
+                    'heli_emissions':'sum'}).reset_index()
+    
+    ctv_emissions = df_procesado['ctv_emissions'].mean()
+    sov_emissions = df_procesado['sov_emissions'].mean()
+    heli_emissions = df_procesado['heli_emissions'].mean()
 
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
-"""     ctv_options = {
+     ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
             "series": [
                 {
@@ -233,7 +233,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.metric(label="CO2 EMISSIONS", value = sov_emissions)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissions) """
+        st.metric(label="CO2 EMISSIONS", value = heli_emissions)
 
-""" else:
-    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE') """
+ else:
+    st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
