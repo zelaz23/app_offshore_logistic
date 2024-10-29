@@ -269,14 +269,14 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Prescripcion
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected CTV CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="CO2 Emissions", value = ctv_emissions_str)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
+        st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str)
     with col2:
-        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected SOV CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="CO2 Emissions", value = sov_emissions_str)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
+        st.metric(label="SOV CO2 Emissions", value = sov_emissions_str)
     with col3:
-        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected Helicopter CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="CO2 Emissions", value = heli_emissions_str)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
+        st.metric(label="Helicopter CO2 Emissions", value = heli_emissions_str)
 
 else:
     st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
