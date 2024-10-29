@@ -188,8 +188,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
             "title": {
             "text": ctv_emissions_str,
             "left": "center",
-            "top": "90%",  # Ubica el texto en la parte inferior del gauge
-            "textStyle": {"fontSize": 16, "fontWeight": "bold"}
+            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "textStyle": {"fontSize": 32, "fontWeight": "bold"}
             },
             "series": [
                 {
@@ -209,8 +209,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
             "title": {
             "text": sov_emissions_str,
             "left": "center",
-            "top": "70%",  # Ubica el texto en la parte inferior del gauge
-            "textStyle": {"fontSize": 16, "fontWeight": "bold"}
+            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "textStyle": {"fontSize": 32, "fontWeight": "bold"}
             },
             "series": [
                 {
@@ -218,7 +218,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value}"},
+                    "detail": {"show": False},
                     "data": [{"value": round(sov_EL), "name": "SOV"}],
                 }
             ],
@@ -231,7 +231,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
             "text": heli_emissions_str,
             "left": "center",
             "top": "80%",  # Ubica el texto en la parte inferior del gauge
-            "textStyle": {"fontSize": 16, "fontWeight": "bold"}
+            "textStyle": {"fontSize": 32, "fontWeight": "bold"}
             },
             "series": [
                 {
