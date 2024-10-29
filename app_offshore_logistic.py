@@ -51,7 +51,7 @@ with st.sidebar:
     working_hours_start = st.time_input('Working hours - Start', time(6, 0))
     working_hours_end = st.time_input('Working hours - End', time(18, 0))
     working_days = st.multiselect('Working days', ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'])
-    temperature = st.slider('Working temperature limit', -5, 60)
+    temperature = st.slider('Working temperature limit', -5, 30)
 
     #DATOS CONOCIDOS (fijadas como datos estaticos por simplicidad)
     ctv_visibility, sov_visibility, heli_visibility = 0.15, 2, 3
@@ -186,9 +186,9 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
-            "text": heli_emissions_str,
+            "text": ctv_emissions_str,
             "left": "center",
-            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "top": "100%",  # Ubica el texto en la parte inferior del gauge
             "textStyle": {"fontSize": 16, "fontWeight": "bold"}
             },
             "series": [
@@ -197,7 +197,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": ctv_emissions_str},
+                    "detail": {"valueAnimation": True, "formatter": "{value}"},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
                 }
             ],
@@ -206,13 +206,19 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Velocimetro para SOV
     sov_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
+            "title": {
+            "text": sov_emissions_str,
+            "left": "center",
+            "top": "100%",  # Ubica el texto en la parte inferior del gauge
+            "textStyle": {"fontSize": 16, "fontWeight": "bold"}
+            },
             "series": [
                 {
                     "name": "Revenue",
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": sov_emissions_str},
+                    "detail": {"valueAnimation": True, "formatter": "{value}"},
                     "data": [{"value": round(sov_EL), "name": "SOV"}],
                 }
             ],
@@ -221,13 +227,19 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Velocimetro para Helicopter   
     heli_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
+            "title": {
+            "text": heli_emissions_str,
+            "left": "center",
+            "top": "100%",  # Ubica el texto en la parte inferior del gauge
+            "textStyle": {"fontSize": 16, "fontWeight": "bold"}
+            },
             "series": [
                 {
                     "name": "Revenue",
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": heli_emissions_str},
+                    "detail": {"valueAnimation": True, "formatter": "{value}"},
                     "data": [{"value": round(heli_EL), "name": "Helicopter"}],
                 }
             ],
