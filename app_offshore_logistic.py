@@ -159,7 +159,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
-     ctv_options = {
+    ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
             "series": [
                 {
