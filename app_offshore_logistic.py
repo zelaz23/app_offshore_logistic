@@ -176,7 +176,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
     sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
     heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
-
+    ctv_emissions_str = f"{round(sov_EL):,}"
 
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
@@ -189,10 +189,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True,
-                               "formatter": """function (value) {
-                                    return value.toLocaleString() ;
-                                    }"""},
+                    "detail": {"valueAnimation": True, "formatter": ctv_emissions_str},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
                 }
             ],
