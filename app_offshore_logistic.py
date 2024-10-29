@@ -257,8 +257,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
-
-    image_path = os.path.join(os.getcwd(), "image_ctv.png")
+    image_path = "./image_ctv.png"
+    #image_path = os.path.join(os.getcwd(), "image_ctv.png")
 
     with col1:
         #st.image("image_ctv.png", width=250)
