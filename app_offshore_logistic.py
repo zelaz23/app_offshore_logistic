@@ -244,7 +244,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
-                    "data": [{"value": round(sov_EL), "name": "SOV"}],
+                    "data": [{"value": round(sov_EL/1000), "name": "SOV"}],
                 }
             ],
         }
@@ -274,7 +274,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
-                    "data": [{"value": round(heli_EL), "name": "Helicopter"}],
+                    "data": [{"value": round(heli_EL/1000), "name": "Helicopter"}],
                 }
             ],
         }
