@@ -141,7 +141,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 'sov_emissions':'sum',
                 'heli_emissions':'sum'
                 }).reset_index()
-    st.write("Data after processing:", df_procesado)
+    st.write("Data after processing:")#, df_procesado)
 
 
     #Ejecutar el scoring
@@ -202,11 +202,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 {
                     "name": "Revenue",
                     "type": "gauge",
-                    "min": 500000,
-                    "max": 2000000,
+                    "min": 500,
+                    "max": 2000,
                     "axisLine": {"lineStyle": {"width": 10}},
                     #"axisLabel": {"formatter": [format_value(100000), format_value(500000), format_value(1000000), format_value(2000000)]},
-                    "axisLabel": {"show": True, "distance": 5, "formatter": lambda x: f"{int(x)}K" if x < 1000 else f"{int(x / 1000)}M"},
+                    "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
