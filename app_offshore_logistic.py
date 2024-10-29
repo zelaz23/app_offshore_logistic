@@ -44,7 +44,7 @@ with st.sidebar:
     load_factor = st.slider('Load Factor', 0.2, 0.8)
     energy_price = st.slider('Energy price', 0.10, 0.50)
     lost_energy_price = st.slider('Lost energy price', 150, 500)
-    surplus_energy_price = st.slider('Surplus energy price', 200000, 300000)
+    surplus_energy_price = st.slider('Surplus energy price', 200000, 600000)
     prod_target = st.slider('Productivity target', 0.80, 0.99)
     principal = wtg * power_wtg * load_factor * energy_price * 365 * 24 * 1000
 
