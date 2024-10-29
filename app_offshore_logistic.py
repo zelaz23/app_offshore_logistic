@@ -121,7 +121,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'heli_day_cost':[heli_day_cost],
                          })
 
-    st.write("Registered sucessfully")#, local_data)
+    st.write("Data registered sucessfully - Calculating...")#, local_data)
 
     # Mensaje de verificación en caso de que no se cargue un archivo
     if uploaded_file is None:
@@ -180,6 +180,13 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     sov_emissions_str = f"{round(sov_EL):,}"
     heli_emissions_str = f"{round(heli_EL):,}"
 
+    def format_value(value):
+        if value >= 1_000_000:
+            return f"{value / 1_000_000}M"
+        elif value >= 1_000:
+            return f"{value / 1_000}K"
+        return str(value)
+
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
@@ -198,14 +205,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "min": 100000,
                     "max": 2000000,
                     "axisLine": {"lineStyle": {"width": 10}},
-                    "axisLabel": {"formatter": """function (value) {
-                                    if (value >= 1000000) {
-                                        return (value / 1000000) + 'M';
-                                    } else {
-                                        return (value / 1000) + 'K';
-                                    }
-                                }"""
-            },
+                    "axisLabel": {"formatter": [format_value(100000), format_value(500000), format_value(1000000), format_value(2000000)]},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
