@@ -146,6 +146,10 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     sov_EL = df_procesado['sov_expec_lost'].mean()
     heli_EL = df_procesado['heli_expec_lost'].mean()
 
+    ctv_EL = float(ctv_EL)
+    sov_EL = float(sov_EL)
+    heli_EL = float(heli_EL)
+
     #Calcular las emisiones de CO2
     df_emissions = df_procesado.groupby(['Year']).agg({
                     'ctv_emissions': 'sum',
@@ -155,6 +159,10 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     ctv_emissions = df_procesado['ctv_emissions'].mean()
     sov_emissions = df_procesado['sov_emissions'].mean()
     heli_emissions = df_procesado['heli_emissions'].mean()
+
+    ctv_emissions = float(ctv_emissions)
+    sov_emissions = float(sov_emissions)
+    heli_emissions = float(heli_emissions)
 
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
