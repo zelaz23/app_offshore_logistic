@@ -186,7 +186,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 }
             ],
         }
-    st_echarts(options=ctv_options, width="100%")
+    #st_echarts(options=ctv_options, width="100%")
 
     #Velocimetro para SOV
     sov_options = {
@@ -202,7 +202,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 }
             ],
         }
-    st_echarts(options=sov_options, width="100%")
+    #st_echarts(options=sov_options, width="100%")
 
     #Velocimetro para Helicopter   
     heli_options = {
@@ -218,7 +218,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 }
             ],
         }
-    st_echarts(options=heli_options, width="100%")
+    #st_echarts(options=heli_options, width="100%")
 
 
 
