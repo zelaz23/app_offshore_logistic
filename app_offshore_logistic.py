@@ -211,7 +211,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         }
 
     #Velocimetro para Helicopter
-"""     heli_options = {
+    """heli_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
             "series": [
                 {
@@ -227,7 +227,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "data": [{"value": heli_EL, "name": "Helicopter"}],
                 }
             ],
-        } """
+        }"""
     
     heli_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
@@ -238,7 +238,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
                     "detail": {"valueAnimation": True, "formatter": "{value}M"},
-                    "data": [{"value": value/1_000_000, "name": "Revenue"}],
+                    "data": [{"value": heli_EL/1_000_000, "name": "Helicopter"}],
                 }
             ],
         }
