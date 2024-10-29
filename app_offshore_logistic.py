@@ -164,6 +164,12 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     sov_emissions = float(sov_emissions)
     heli_emissions = float(heli_emissions)
 
+    # Asegurarse de que las emisiones de CO2 son cadenas
+    ctv_emissions_str = str(round(ctv_emissions, 2)) if isinstance(ctv_emissions, (int, float)) else "N/A"
+    sov_emissions_str = str(round(sov_emissions, 2)) if isinstance(sov_emissions, (int, float)) else "N/A"
+    heli_emissions_str = str(round(heli_emissions, 2)) if isinstance(heli_emissions, (int, float)) else "N/A"
+
+
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
@@ -235,13 +241,13 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     col1,col2,col3 = st.columns(3)
     with col1:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = ctv_emissions)
+        st.metric(label="CO2 EMISSIONS", value = ctv_emissions_str)
     with col2:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = sov_emissions)
+        st.metric(label="CO2 EMISSIONS", value = sov_emissions_str)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissions)
+        st.metric(label="CO2 EMISSIONS", value = heli_emissions_str)
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
