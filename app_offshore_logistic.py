@@ -168,7 +168,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
     ctv_emissions_str = f"{round(ctv_emissions):,}"
     sov_emissions_str = f"{round(sov_emissions):,}"
-    heli_emissions_str = f"{round(heli_emissions):,}""""
+    heli_emissions_str = f"{round(heli_emissions):,}" """
 
     """def format_value(value):
         if value >= 1_000_000:
