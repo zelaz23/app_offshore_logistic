@@ -189,12 +189,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value}"},
-                    "data": [{"value": ctv_EL, "name": "SOV"}],
+                    "detail": {"valueAnimation": True, "formatter": "{value|0}"},
+                    "data": [{"value": round(ctv_EL), "name": "SOV"}],
                 }
             ],
         }
-    #st_echarts(options=ctv_options, width="100%")
 
     #Velocimetro para SOV
     sov_options = {
@@ -205,12 +204,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value}"},
-                    "data": [{"value": sov_EL, "name": "SOV"}],
+                    "detail": {"valueAnimation": True, "formatter": "{value|0}"},
+                    "data": [{"value": round(sov_EL), "name": "SOV"}],
                 }
             ],
         }
-    #st_echarts(options=sov_options, width="100%")
 
     #Velocimetro para Helicopter   
     heli_options = {
@@ -221,15 +219,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value}"},
-                    "data": [{"value": heli_EL, "name": "Helicopter"}],
+                    "detail": {"valueAnimation": True, "formatter": "{value|0}"},
+                    "data": [{"value": round(heli_EL), "name": "Helicopter"}],
                 }
             ],
         }
-    #st_echarts(options=heli_options, width="100%")
-
-
-
 
 
     #Representarlos en la app
