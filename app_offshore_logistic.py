@@ -282,11 +282,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
-        st.image("r_image_sov_1.png", width=250)
+        st.image("r_image_sov_1.png", width=350)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for SOV</h3>", unsafe_allow_html=True)
         st_echarts(options=sov_options, width="110%", key="sov_gauge")
     with col3:
-        st.image("r_image_heli_2.png",  width=250)
+        st.image("r_image_heli_2.png",  width=450)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for Helicopter</h3>", unsafe_allow_html=True)
         st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
