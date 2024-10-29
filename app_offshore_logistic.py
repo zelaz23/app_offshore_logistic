@@ -133,14 +133,22 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Ejecutar codigo_de_ejecucion_v1
         # Procesar los datos cargados
     df_procesado = procesar_datos(df, local_data)
+    df_procesado = df_procesado.groupby(['Year']).agg({
+                'ctv_expec_lost': 'sum',
+                'sov_expec_lost':'sum',
+                'heli_expec_lost':'sum',
+                'ctv_emissions': 'sum',
+                'sov_emissions':'sum',
+                'heli_emissions':'sum'
+                }).reset_index()
     st.write("Data after processing:", df_procesado)
 
 
     #Ejecutar el scoring
-    df_expec_lost = df_procesado.groupby(['Year']).agg({
-                    'ctv_expec_lost': 'sum',
-                    'sov_expec_lost':'sum',
-                    'heli_expec_lost':'sum'}).reset_index()
+    #df_expec_lost = df_procesado.groupby(['Year']).agg({
+    #                'ctv_expec_lost': 'sum',
+    #                'sov_expec_lost':'sum',
+    #                'heli_expec_lost':'sum'}).reset_index()
     
     ctv_EL = df_procesado['ctv_expec_lost'].mean()
     sov_EL = df_procesado['sov_expec_lost'].mean()
@@ -151,10 +159,10 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_EL = float(heli_EL)
 
     #Calcular las emisiones de CO2
-    df_emissions = df_procesado.groupby(['Year']).agg({
-                    'ctv_emissions': 'sum',
-                    'sov_emissions':'sum',
-                    'heli_emissions':'sum'}).reset_index()
+    #df_emissions = df_procesado.groupby(['Year']).agg({
+    #                'ctv_emissions': 'sum',
+    #                'sov_emissions':'sum',
+    #                'heli_emissions':'sum'}).reset_index()
     
     ctv_emissions = df_procesado['ctv_emissions'].mean()
     sov_emissions = df_procesado['sov_emissions'].mean()
