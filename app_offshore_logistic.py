@@ -4,6 +4,7 @@ from streamlit_echarts import st_echarts
 from datetime import time
 import pandas as pd
 import os
+from PIL import Image
 
 
 #CONFIGURACION DE LA PÁGINA
