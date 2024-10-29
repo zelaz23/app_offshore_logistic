@@ -209,7 +209,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
-                    "data": [{"value": round(ctv_EL), "name": "CTV"}],
+                    "data": [{"value": round(ctv_EL/1000), "name": "CTV"}],
                 }
             ],
         }
