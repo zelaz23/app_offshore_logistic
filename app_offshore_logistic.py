@@ -121,7 +121,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'heli_day_cost':[heli_day_cost],
                          })
 
-    st.write("Data registered sucessfully --> Calculating...")#, local_data)
+    st.write("Data registered sucessfully --> Processing...")#, local_data)
 
     # Mensaje de verificación en caso de que no se cargue un archivo
     if uploaded_file is None:
@@ -202,16 +202,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 {
                     "name": "Revenue",
                     "type": "gauge",
-                    "min": 100000,
+                    "min": 500000,
                     "max": 2000000,
                     "axisLine": {"lineStyle": {"width": 10}},
                     #"axisLabel": {"formatter": [format_value(100000), format_value(500000), format_value(1000000), format_value(2000000)]},
-                    "axisLabel": {"show": True, "distance": 5, "color": "#555", "formatter": "{value}", "rich": {
-                        "value100K": {"value": "100K"},
-                        "value500K": {"value": "500K"},
-                        "value1M": {"value": "1M"},
-                        "value2M": {"value": "2M"}},
-                },
+                    "axisLabel": {"show": True, "distance": 5, "formatter": lambda x: f"{int(x)}K" if x < 1000 else f"{int(x / 1000)}M"},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
