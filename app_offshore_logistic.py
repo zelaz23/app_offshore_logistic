@@ -283,6 +283,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
     with col1:
+        st.write("Expected Lost for CTV")
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
         st_echarts(options=sov_options, width="110%", key="sov_gauge")
