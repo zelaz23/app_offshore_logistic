@@ -86,6 +86,7 @@ def procesar_datos(df, local_data):
     working_hours_end_time = local_data['working_hours_end'].values[0]
     working_hours_end = working_hours_end_time.hour
     temperature = local_data['temperature'].values[0]
+    df['Hour'] = df['Hour'].apply(lambda x: x.hour if isinstance(x, datetime.time) else x)
         
         
     # ------------------------------ CTV -------------------------------------------------
