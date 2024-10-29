@@ -165,9 +165,9 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions = float(heli_emissions)
 
     # Asegurarse de que las emisiones de CO2 son cadenas
-    ctv_emissions_str = str(ctv_emissions, 2)) if isinstance(ctv_emissions, (int, float)) else "N/A"
-    sov_emissions_str = str(sov_emissions, 2)) if isinstance(sov_emissions, (int, float)) else "N/A"
-    heli_emissions_str = str(heli_emissions, 2)) if isinstance(heli_emissions, (int, float)) else "N/A"
+    ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
+    sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
+    heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
 
 
     #Velocimetros
