@@ -257,12 +257,15 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
     with col1:
+        st.image("image_ctv.png", use_column_width=True)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
+        st.image("image_sov.png", use_column_width=True)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for SOV</h3>", unsafe_allow_html=True)
         st_echarts(options=sov_options, width="110%", key="sov_gauge")
     with col3:
+        st.image("image_heli.png", use_column_width=True)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for Helicopter</h3>", unsafe_allow_html=True)
         st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
