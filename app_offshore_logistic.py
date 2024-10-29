@@ -230,18 +230,18 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         } """
     
     heli_options = {
-        "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
-        "series": [
-            {
-                "name": "Revenue",
-                "type": "gauge",
-                "axisLine": {"lineStyle": {"width": 10}},
-                "progress": {"show": True, "width": 10},
-                "detail": {"valueAnimation": True, "formatter": "{value}M"},
-                "data": [{"value": value/1_000_000, "name": "Revenue"}],
-            }
-        ],
-    }
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
+            "series": [
+                {
+                    "name": "Revenue",
+                    "type": "gauge",
+                    "axisLine": {"lineStyle": {"width": 10}},
+                    "progress": {"show": True, "width": 10},
+                    "detail": {"valueAnimation": True, "formatter": "{value}M"},
+                    "data": [{"value": value/1_000_000, "name": "Revenue"}],
+                }
+            ],
+        }
     st_echarts(options=options, width="100%")
 
 
