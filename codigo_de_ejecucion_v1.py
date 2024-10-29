@@ -99,7 +99,7 @@ def procesar_datos(df, local_data):
                                 (df['Ice_coverage'] == local_data['ctv_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(working_days)) &
+                                (df['date'].dt.weekday.isin(working_days_to_num)) &
                                 (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) & 
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
                                 (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
@@ -114,7 +114,7 @@ def procesar_datos(df, local_data):
                                 (df['Ice_coverage'] == local_data['sov_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(working_days)) & 
+                                (df['date'].dt.weekday.isin(working_days_to_num)) & 
                                 (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
                                 (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
@@ -129,7 +129,7 @@ def procesar_datos(df, local_data):
                                 (df['Ice_coverage'] == local_data['heli_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(local_data['working_days'].iloc[0])) & 
+                                (df['date'].dt.weekday.isin(working_days_to_num)) & 
                                 (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
                                 (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
