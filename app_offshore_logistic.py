@@ -262,7 +262,9 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     with col1:
         #st.image("r_image_ctv.png", width=250)
-        st.markdown("<div style='display: flex; justify-content: center;'>""<img src='r_image_ctv.png' width='250' />""</div>",
+        st.markdown("<div style='display: flex; justify-content: center;'>"
+                    "<img src='r_image_ctv.png' width='250' />"
+                    "</div>",
                     unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
