@@ -179,9 +179,9 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
     sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
     heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
-    ctv_emissions_str = f"{round(ctv_EL):,}"
-    sov_emissions_str = f"{round(sov_EL):,}"
-    heli_emissions_str = f"{round(heli_EL):,}"
+    ctv_emissions_str = f"{round(ctv_emissions):,}"
+    sov_emissions_str = f"{round(sov_emissions):,}"
+    heli_emissions_str = f"{round(heli_emissions):,}"
 
     def format_value(value):
         if value >= 1_000_000:
@@ -280,14 +280,16 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Prescripcion
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = ctv_emissions_str)
+        #st.write('Anual expected CO2 emissions:')
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected CO2 emissions</h3>", unsafe_allow_html=True)
+
+        st.metric(label="CTV CO2 EMISSIONS", value = ctv_emissions_str)
     with col2:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = sov_emissions_str)
+        st.metric(label="SOV CO2 EMISSIONS", value = sov_emissions_str)
     with col3:
         st.write('Anual expected CO2 emissions:')
-        st.metric(label="CO2 EMISSIONS", value = heli_emissions_str)
+        st.metric(label="Helicopter CO2 EMISSIONS", value = heli_emissions_str)
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
