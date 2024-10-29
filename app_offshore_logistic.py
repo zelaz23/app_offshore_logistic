@@ -145,13 +145,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 'heli_emissions':'sum'
                 }).reset_index()
     #st.write("Data after processing:", df_procesado)
-
-
-    #Ejecutar el scoring
-    #df_expec_lost = df_procesado.groupby(['Year']).agg({
-    #                'ctv_expec_lost': 'sum',
-    #                'sov_expec_lost':'sum',
-    #                'heli_expec_lost':'sum'}).reset_index()
     
     ctv_EL = df_procesado['ctv_expec_lost'].mean()
     sov_EL = df_procesado['sov_expec_lost'].mean()
@@ -160,12 +153,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     ctv_EL = float(ctv_EL)
     sov_EL = float(sov_EL)
     heli_EL = float(heli_EL)
-
-    #Calcular las emisiones de CO2
-    #df_emissions = df_procesado.groupby(['Year']).agg({
-    #                'ctv_emissions': 'sum',
-    #                'sov_emissions':'sum',
-    #                'heli_emissions':'sum'}).reset_index()
     
     ctv_emissions = df_procesado['ctv_emissions'].mean()
     sov_emissions = df_procesado['sov_emissions'].mean()
@@ -176,19 +163,19 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions = float(heli_emissions)
 
     # Asegurarse de que las emisiones de CO2 son cadenas
-    ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
+    """ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
     sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
     heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
     ctv_emissions_str = f"{round(ctv_emissions):,}"
     sov_emissions_str = f"{round(sov_emissions):,}"
-    heli_emissions_str = f"{round(heli_emissions):,}"
+    heli_emissions_str = f"{round(heli_emissions):,}""""
 
-    def format_value(value):
+    """def format_value(value):
         if value >= 1_000_000:
             return f"{value / 1_000_000}M"
         elif value >= 1_000:
             return f"{value / 1_000}K"
-        return str(value)
+        return str(value)"""
 
     #Velocimetros
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
@@ -280,16 +267,14 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Prescripcion
     col1,col2,col3 = st.columns(3)
     with col1:
-        #st.write('Anual expected CO2 emissions:')
-        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected CO2 emissions</h3>", unsafe_allow_html=True)
-
-        st.metric(label="CTV CO2 EMISSIONS", value = ctv_emissions_str)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected CTV CO2 emissions</h3>", unsafe_allow_html=True)
+        st.metric(value = ctv_emissions_str)
     with col2:
-        st.write('Anual expected CO2 emissions:')
-        st.metric(label="SOV CO2 EMISSIONS", value = sov_emissions_str)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected SOV CO2 emissions</h3>", unsafe_allow_html=True)
+        st.metric(value = sov_emissions_str)
     with col3:
-        st.write('Anual expected CO2 emissions:')
-        st.metric(label="Helicopter CO2 EMISSIONS", value = heli_emissions_str)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected Helicopter CO2 emissions</h3>", unsafe_allow_html=True)
+        st.metric(value = heli_emissions_str)
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
