@@ -99,10 +99,10 @@ def procesar_datos(df, local_data):
                                 (df['Ice_coverage'] == local_data['ctv_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(working_days_to_num)) &
+                                (df['date'].dt.weekday.isin(working_days)) &
                                 (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) & 
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
+                                (df['Temperature_80m'] > temperature), 1,0)
 
     
     # ------------------------------ SOV -------------------------------------------------
@@ -114,10 +114,10 @@ def procesar_datos(df, local_data):
                                 (df['Ice_coverage'] == local_data['sov_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(working_days_to_num)) & 
+                                (df['date'].dt.weekday.isin(working_days)) & 
                                 (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
+                                (df['Temperature_80m'] > temperature), 1,0)
     
 
     # ------------------------------ HELICOPTER -------------------------------------------
@@ -129,10 +129,10 @@ def procesar_datos(df, local_data):
                                 (df['Ice_coverage'] == local_data['heli_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(working_days_to_num)) & 
+                                (df['date'].dt.weekday.isin(working_days)) & 
                                 (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
+                                (df['Temperature_80m'] > temperature), 1,0)
     
     # Agrupamos por día, año y localización
     df_work = df.groupby([df['date'].dt.date, 'Year', 'Month']).agg({
@@ -533,3 +533,5 @@ def procesar_datos(df, local_data):
 
     # Devuelve el DataFrame procesado
     return df_work
+
+
