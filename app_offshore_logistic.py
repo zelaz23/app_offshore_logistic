@@ -3,6 +3,7 @@ import streamlit as st
 from streamlit_echarts import st_echarts
 from datetime import time
 import pandas as pd
+import os
 
 
 #CONFIGURACION DE LA PÁGINA
@@ -256,12 +257,15 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
+
+    image_path = os.path.join(os.getcwd(), "image_ctv.png")
+
     with col1:
         #st.image("image_ctv.png", width=250)
         st.markdown(
-            """
+            f"""
             <div style="text-align: center;">
-            <img src="image_ctv.png" alt="CTV Image" style="width:250px; height:200px;">
+            <img src="data:image/png;base64,{image_path}" alt="CTV Image" style="width:250px; height:200px;">
             </div>
             """, 
             unsafe_allow_html=True
