@@ -90,47 +90,47 @@ def procesar_datos(df, local_data):
         
     # ------------------------------ CTV -------------------------------------------------
     # Condiciones en las que un CTV puede trabajar
-    df['ctv_works'] = np.where((df['Visibility'] > local_data['ctv_visibility']) &
-                                (df['Wind_speed_150m'] < local_data['ctv_wind_speed_150m']) &
-                                (df['Sign._wave_height_(Hs)'] < local_data['ctv_sign_wave_height']) &
-                                (df['Precipitation'] <= local_data['ctv_precipitation']) & 
-                                (df['Ice_coverage'] == local_data['ctv_ice_coverage']) &
+    df['ctv_works'] = np.where((df['Visibility'] > local_data['ctv_visibility'].iloc[0]) &
+                                (df['Wind_speed_150m'] < local_data['ctv_wind_speed_150m'].iloc[0]) &
+                                (df['Sign._wave_height_(Hs)'] < local_data['ctv_sign_wave_height'].iloc[0]) &
+                                (df['Precipitation'] <= local_data['ctv_precipitation'].iloc[0]) & 
+                                (df['Ice_coverage'] == local_data['ctv_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
                                 (df['date'].dt.weekday.isin(working_days)) &
-                                (df['Hour'] >= working_hours_start) & (df['Hour'] <= working_hours_end) & 
+                                (df['Hour'] >= local_data['working_hours_start'].iloc[0]) & (df['Hour'] <= local_data['working_hours_end'].iloc[0]) & 
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > temperature), 1,0)
+                                (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
 
     
     # ------------------------------ SOV -------------------------------------------------
     # Condiciones en las que un SOV puede trabajar
-    df['sov_works'] = np.where((df['Visibility'] > local_data['sov_visibility']) &
-                                (df['Wind_speed_150m'] < local_data['sov_wind_speed_150m']) &
-                                (df['Sign._wave_height_(Hs)'] < local_data['sov_sign_wave_height']) &
-                                (df['Precipitation'] <= local_data['sov_precipitation']) & 
-                                (df['Ice_coverage'] == local_data['sov_ice_coverage']) &
+    df['sov_works'] = np.where((df['Visibility'] > local_data['sov_visibility'].iloc[0]) &
+                                (df['Wind_speed_150m'] < local_data['sov_wind_speed_150m'].iloc[0]) &
+                                (df['Sign._wave_height_(Hs)'] < local_data['sov_sign_wave_height'].iloc[0]) &
+                                (df['Precipitation'] <= local_data['sov_precipitation'].iloc[0]) & 
+                                (df['Ice_coverage'] == local_data['sov_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
                                 (df['date'].dt.weekday.isin(working_days)) & 
-                                (df['Hour'] >= local_data['working_hours_start']) & (df['Hour'] <= local_data['working_hours_end']) &
+                                (df['Hour'] >= local_data['working_hours_start'].iloc[0]) & (df['Hour'] <= local_data['working_hours_end'].iloc[0]) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > local_data['temperature']), 1,0)
+                                (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
     
 
     # ------------------------------ HELICOPTER -------------------------------------------
     # Condiciones en las que un Helicopter puede trabajar
-    df['heli_works'] = np.where((df['Visibility'] > local_data['heli_visibility']) &
-                                (df['Wind_speed_150m'] < local_data['heli_wind_speed_150m']) &
-                                (df['Sign._wave_height_(Hs)'] < local_data['heli_sign_wave_height']) &
-                                (df['Precipitation'] <= local_data['heli_precipitation']) & 
-                                (df['Ice_coverage'] == local_data['heli_ice_coverage']) &
+    df['heli_works'] = np.where((df['Visibility'] > local_data['heli_visibility'].iloc[0]) &
+                                (df['Wind_speed_150m'] < local_data['heli_wind_speed_150m'].iloc[0]) &
+                                (df['Sign._wave_height_(Hs)'] < local_data['heli_sign_wave_height'].iloc[0]) &
+                                (df['Precipitation'] <= local_data['heli_precipitation'].iloc[0]) & 
+                                (df['Ice_coverage'] == local_data['heli_ice_coverage'].iloc[0]) &
 
                                  # Variables comunes 
-                                (df['date'].dt.weekday.isin(local_data['working_days'])) & 
-                                (df['Hour'] >= local_data['working_hours_start']) & (df['Hour'] <= local_data['working_hours_end']) &
+                                (df['date'].dt.weekday.isin(local_data['working_days'].iloc[0])) & 
+                                (df['Hour'] >= local_data['working_hours_start'].iloc[0]) & (df['Hour'] <= local_data['working_hours_end'].iloc[0]) &
                                 (df['Short_radiation'] > 0 ) & # Durante las horas de luz del día
-                                (df['Temperature_80m'] > local_data['temperature']), 1,0)
+                                (df['Temperature_80m'] > local_data['temperature'].iloc[0]), 1,0)
     
     # Agrupamos por día, año y localización
     df_work = df.groupby([df['date'].dt.date, 'Year', 'Month']).agg({
