@@ -189,7 +189,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value|0.0}"},
+                    "detail": {"valueAnimation": True, "formatter": """function (value) {return value.toLocaleString() ;}""",
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
                 }
             ],
