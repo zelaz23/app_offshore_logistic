@@ -185,8 +185,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                         },
                     },
                     "progress": {"show": "true", "width": 10},
-                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                    "data": [{"value": ctv_EL, "name": "PD"}],
+                    "detail": {"valueAnimation": "true", "formatter": "{value|0}"},
+                    "data": [{"value": ctv_EL, "name": "CTV"}],
                 }
             ],
         }
@@ -204,8 +204,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                         },
                     },
                     "progress": {"show": "true", "width": 10},
-                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                    "data": [{"value": sov_EL, "name": "PD"}],
+                    "detail": {"valueAnimation": "true", "formatter": "{value|0}"},
+                    "data": [{"value": sov_EL, "name": "SOV"}],
                 }
             ],
         }
@@ -223,8 +223,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                         },
                     },
                     "progress": {"show": "true", "width": 10,},
-                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                    "data": [{"value": heli_EL, "name": "LGD"}],
+                    "detail": {"valueAnimation": "true", "formatter": "{value|0}"},
+                    "data": [{"value": heli_EL, "name": "Helicopter"}],
                 }
             ],
         }
