@@ -154,7 +154,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     sov_EL = float(sov_EL)
     heli_EL = float(heli_EL)
 
-    # Asegurarse de que las emisiones de CO2 son cadenas
+    # Asegurarse de que las expected lost son cadenas
     ctv_EL_str = str(ctv_EL) if isinstance(ctv_EL, (int, float)) else "N/A"
     sov_EL_str = str(sov_EL) if isinstance(sov_EL, (int, float)) else "N/A"
     heli_EL_str = str(heli_EL) if isinstance(heli_EL, (int, float)) else "N/A"
@@ -171,12 +171,12 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions = float(heli_emissions)
 
     # Asegurarse de que las emisiones de CO2 son cadenas
-    #ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
-    #sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
-    #heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
-    #ctv_emissions_str = f"{round(ctv_emissions):,}"
-    #sov_emissions_str = f"{round(sov_emissions):,}"
-    #heli_emissions_str = f"{round(heli_emissions):,}"
+    ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
+    sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
+    heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
+    ctv_emissions_str = f"{round(ctv_emissions):,}"
+    sov_emissions_str = f"{round(sov_emissions):,}"
+    heli_emissions_str = f"{round(heli_emissions):,}"
 
     #def format_value(value):
     #    if value >= 1_000_000:
@@ -191,7 +191,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
-            "text": ctv_EL_str,
+            "text": ctv_EL_str + ' €',
             "left": "center",
             "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
@@ -215,7 +215,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     sov_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
-            "text": sov_EL_str,
+            "text": sov_EL_str + ' €',
             "left": "center",
             "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
@@ -239,7 +239,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
-            "text": heli_EL_str + '€',
+            "text": heli_EL_str + ' €',
             "left": "center",
             "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
@@ -285,4 +285,4 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.metric(value = heli_emissions)
 
 else:
-    st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
+    st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
