@@ -144,7 +144,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 'sov_emissions':'sum',
                 'heli_emissions':'sum'
                 }).reset_index()
-    #st.write("Data after processing:", df_procesado)
+    st.write("Data after processing:", df_procesado)
     
     ctv_EL = df_procesado['ctv_expec_lost'].mean()
     sov_EL = df_procesado['sov_expec_lost'].mean()
