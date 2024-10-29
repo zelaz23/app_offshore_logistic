@@ -160,7 +160,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_EL_str = str(heli_EL) if isinstance(heli_EL, (int, float)) else "N/A"
     ctv_EL_str = f"{round(ctv_EL):,}"
     sov_EL_str = f"{round(sov_EL):,}"
-    heli_EL_str = f"{round(heli_EL):,}" """
+    heli_EL_str = f"{round(heli_EL):,}"
     
     ctv_emissions = df_procesado['ctv_emissions'].mean()
     sov_emissions = df_procesado['sov_emissions'].mean()
@@ -171,12 +171,12 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions = float(heli_emissions)
 
     # Asegurarse de que las emisiones de CO2 son cadenas
-    """ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
-    sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
-    heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
-    ctv_emissions_str = f"{round(ctv_emissions):,}"
-    sov_emissions_str = f"{round(sov_emissions):,}"
-    heli_emissions_str = f"{round(heli_emissions):,}" """
+    #ctv_emissions_str = str(ctv_emissions) if isinstance(ctv_emissions, (int, float)) else "N/A"
+    #sov_emissions_str = str(sov_emissions) if isinstance(sov_emissions, (int, float)) else "N/A"
+    #heli_emissions_str = str(heli_emissions) if isinstance(heli_emissions, (int, float)) else "N/A"
+    #ctv_emissions_str = f"{round(ctv_emissions):,}"
+    #sov_emissions_str = f"{round(sov_emissions):,}"
+    #heli_emissions_str = f"{round(heli_emissions):,}"
 
     """def format_value(value):
         if value >= 1_000_000:
