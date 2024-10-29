@@ -190,7 +190,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
                     "detail": {"valueAnimation": True, "formatter": "{value}"},
-                    "data": [{"value": ctv_EL/1_000, "name": "SOV"}],
+                    "data": [{"value": ctv_EL, "name": "SOV"}],
                 }
             ],
         }
@@ -206,7 +206,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
                     "detail": {"valueAnimation": True, "formatter": "{value}"},
-                    "data": [{"value": sov_EL/1_000, "name": "SOV"}],
+                    "data": [{"value": sov_EL, "name": "SOV"}],
                 }
             ],
         }
@@ -222,7 +222,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
                     "detail": {"valueAnimation": True, "formatter": "{value}"},
-                    "data": [{"value": heli_EL/1_000, "name": "Helicopter"}],
+                    "data": [{"value": heli_EL, "name": "Helicopter"}],
                 }
             ],
         }
