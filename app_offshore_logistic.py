@@ -242,7 +242,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 }
             ],
         }
-    st_echarts(options=options, width="100%")
+    st_echarts(options=heli_options, width="100%")
 
 
 
