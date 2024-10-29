@@ -195,8 +195,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 {
                     "name": "Revenue",
                     "type": "gauge",
-                    "min": 100,000,
-                    "max": 2,000,000
+                    "min": 100000,
+                    "max": 2000000,
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
