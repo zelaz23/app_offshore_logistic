@@ -191,12 +191,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
     ctv_options = {
-            "title": {
-            "text": "Expected Lost for CTV",  # Título principal
-            "left": "center",  # Centrar el título horizontalmente
-            "top": "0%",  # Posicionar el título en la parte superior
-            "textStyle": {"fontSize": 28, "fontWeight": "bold"}  # Estilo de texto
-            },
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
             "text": ctv_emissions_str,
@@ -221,12 +215,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Velocimetro para SOV
     sov_options = {
-            "title": {
-            "text": "Expected Lost for SOV",  # Título principal
-            "left": "center",  # Centrar el título horizontalmente
-            "top": "0%",  # Posicionar el título en la parte superior
-            "textStyle": {"fontSize": 28, "fontWeight": "bold"}  # Estilo de texto
-            },
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
             "text": sov_emissions_str,
@@ -251,12 +239,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Velocimetro para Helicopter   
     heli_options = {
-            "title": {
-            "text": "Expected Lost for Helicopter",  # Título principal
-            "left": "center",  # Centrar el título horizontalmente
-            "top": "0%",  # Posicionar el título en la parte superior
-            "textStyle": {"fontSize": 28, "fontWeight": "bold"}  # Estilo de texto
-            },
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
             "text": heli_emissions_str,
@@ -283,11 +265,13 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.write("Expected Lost for CTV")
+        st.markdown("<h3 style='text-align: center; font-size: 1.2em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
+        st.write("Expected Lost for SOV")
         st_echarts(options=sov_options, width="110%", key="sov_gauge")
     with col3:
+        st.write("Expected Lost for Helicopter")
         st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
     #Prescripcion
