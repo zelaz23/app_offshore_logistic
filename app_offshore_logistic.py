@@ -12,7 +12,10 @@ st.set_page_config(
      layout = 'wide')
 
 #MAIN
-st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
+#st.title('OFFSHORE WIND FARM LOGISTIC ANALYZER')
+st.markdown(
+    "<h1 style='text-align: center;'>OFFSHORE WIND FARM LOGISTIC ANALYZER</h1>",
+    unsafe_allow_html=True)
 
 #SIDEBAR
 with st.sidebar:
@@ -121,7 +124,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'heli_day_cost':[heli_day_cost],
                          })
 
-    st.write("Data registered sucessfully --> Processing...")#, local_data)
+    #st.write("Data registered sucessfully --> Processing...")#, local_data)
 
     # Mensaje de verificación en caso de que no se cargue un archivo
     if uploaded_file is None:
@@ -141,7 +144,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 'sov_emissions':'sum',
                 'heli_emissions':'sum'
                 }).reset_index()
-    st.write("Data after processing:")#, df_procesado)
+    #st.write("Data after processing:", df_procesado)
 
 
     #Ejecutar el scoring
@@ -265,10 +268,10 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.markdown("<h3 style='text-align: center; font-size: 1.2em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
-        st.markdown("<h3 style='text-align: center; font-size: 1.4em;'>Expected Lost for SOV</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for SOV</h3>", unsafe_allow_html=True)
         st_echarts(options=sov_options, width="110%", key="sov_gauge")
     with col3:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for Helicopter</h3>", unsafe_allow_html=True)
