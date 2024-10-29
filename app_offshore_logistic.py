@@ -195,9 +195,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 {
                     "name": "Revenue",
                     "type": "gauge",
+                    "min": 100,000,
+                    "max": 2,000,000
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value}"},
+                    "detail": {"show": False},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
                 }
             ],
@@ -239,7 +241,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
                     "progress": {"show": True, "width": 10},
-                    "detail": {"valueAnimation": True, "formatter": "{value}"},
+                    "detail": {"show": False},
                     "data": [{"value": round(heli_EL), "name": "Helicopter"}],
                 }
             ],
