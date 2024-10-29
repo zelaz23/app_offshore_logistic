@@ -165,9 +165,9 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions = float(heli_emissions)
 
     # Asegurarse de que las emisiones de CO2 son cadenas
-    ctv_emissions_str = str(round(ctv_emissions, 2)) if isinstance(ctv_emissions, (int, float)) else "N/A"
-    sov_emissions_str = str(round(sov_emissions, 2)) if isinstance(sov_emissions, (int, float)) else "N/A"
-    heli_emissions_str = str(round(heli_emissions, 2)) if isinstance(heli_emissions, (int, float)) else "N/A"
+    ctv_emissions_str = str(ctv_emissions, 2)) if isinstance(ctv_emissions, (int, float)) else "N/A"
+    sov_emissions_str = str(sov_emissions, 2)) if isinstance(sov_emissions, (int, float)) else "N/A"
+    heli_emissions_str = str(heli_emissions, 2)) if isinstance(heli_emissions, (int, float)) else "N/A"
 
 
     #Velocimetros
@@ -231,11 +231,11 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
     with col1:
-        st_echarts(options=ctv_options, width="110%", key=0)
+        st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
-        st_echarts(options=sov_options, width="110%", key=1)
+        st_echarts(options=sov_options, width="110%", key="sov_gauge")
     with col3:
-        st_echarts(options=heli_options, width="110%", key=2)
+        st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
     #Prescripcion
     col1,col2,col3 = st.columns(3)
