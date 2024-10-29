@@ -191,11 +191,17 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
     ctv_options = {
+            "title": {
+            "text": "Expected Lost for CTV",  # Título principal
+            "left": "center",  # Centrar el título horizontalmente
+            "top": "0%",  # Posicionar el título en la parte superior
+            "textStyle": {"fontSize": 28, "fontWeight": "bold"}  # Estilo de texto
+            },
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
             "text": ctv_emissions_str,
             "left": "center",
-            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
             },
             "series": [
@@ -205,7 +211,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "min": 500,
                     "max": 2000,
                     "axisLine": {"lineStyle": {"width": 10}},
-                    #"axisLabel": {"formatter": [format_value(100000), format_value(500000), format_value(1000000), format_value(2000000)]},
                     "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
@@ -216,11 +221,17 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Velocimetro para SOV
     sov_options = {
+            "title": {
+            "text": "Expected Lost for SOV",  # Título principal
+            "left": "center",  # Centrar el título horizontalmente
+            "top": "0%",  # Posicionar el título en la parte superior
+            "textStyle": {"fontSize": 28, "fontWeight": "bold"}  # Estilo de texto
+            },
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
             "text": sov_emissions_str,
             "left": "center",
-            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
             },
             "series": [
@@ -228,6 +239,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "name": "Revenue",
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
+                    "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
                     "data": [{"value": round(sov_EL), "name": "SOV"}],
@@ -237,11 +249,17 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Velocimetro para Helicopter   
     heli_options = {
+            "title": {
+            "text": "Expected Lost for Helicopter",  # Título principal
+            "left": "center",  # Centrar el título horizontalmente
+            "top": "0%",  # Posicionar el título en la parte superior
+            "textStyle": {"fontSize": 28, "fontWeight": "bold"}  # Estilo de texto
+            },
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "title": {
             "text": heli_emissions_str,
             "left": "center",
-            "top": "80%",  # Ubica el texto en la parte inferior del gauge
+            "top": "80%",  
             "textStyle": {"fontSize": 32, "fontWeight": "bold"}
             },
             "series": [
@@ -249,6 +267,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "name": "Revenue",
                     "type": "gauge",
                     "axisLine": {"lineStyle": {"width": 10}},
+                    "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
                     "data": [{"value": round(heli_EL), "name": "Helicopter"}],
