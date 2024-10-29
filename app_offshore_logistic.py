@@ -257,15 +257,27 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
-    #image_path = "./image_ctv.png"
-    #image_path = os.path.join(os.getcwd(), "image_ctv.png")
+    # Cargar la imagen con PIL
+    try:
+        img = Image.open("r_image_ctv.png")
+        with col1:
+            st.markdown(
+                "<div style='display: flex; justify-content: center;'>"
+                "<img src='r_image_ctv.png' width='250' />"
+                "</div>",
+                unsafe_allow_html=True
+            )
+    except FileNotFoundError:
+        st.error("La imagen no se encuentra en la ruta especificada.")
+    except Exception as e:
+        st.error(f"Error al abrir la imagen: {e}")
 
     with col1:
         #st.image("r_image_ctv.png", width=250)
-        st.markdown("<div style='display: flex; justify-content: center;'>"
-                    "<img src='r_image_ctv.png' width='250' />"
-                    "</div>",
-                    unsafe_allow_html=True)
+        #st.markdown("<div style='display: flex; justify-content: center;'>"
+        #            "<img src='r_image_ctv.png' width='250' />"
+        #            "</div>",
+        #            unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
