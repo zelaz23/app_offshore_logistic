@@ -144,6 +144,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 'sov_emissions':'sum',
                 'heli_emissions':'sum'
                 }).reset_index()
+    
     st.write("Data after processing:", df_procesado)
     
     ctv_EL = df_procesado['ctv_expec_lost'].mean()
@@ -269,13 +270,13 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     col1,col2,col3 = st.columns(3)
     with col1:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected CTV CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(value = ctv_emissions_str)
+        st.metric(label="CO2 Emissions", value = ctv_emissions_str)
     with col2:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected SOV CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(value = sov_emissions_str)
+        st.metric(label="CO2 Emissions", value = sov_emissions_str)
     with col3:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected Helicopter CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(value = heli_emissions_str)
+        st.metric(label="CO2 Emissions", value = heli_emissions_str)
 
 else:
     st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
