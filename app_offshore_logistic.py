@@ -174,61 +174,37 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
     ctv_options = {
-            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "series": [
                 {
-                    "name": "Expected Lost",
+                    "name": "Revenue",
                     "type": "gauge",
-                    "axisLine": {
-                        "lineStyle": {
-                            "width": 10,
-                        },
-                    },
-                    "progress": {"show": "true", "width": 10},
-                    "detail": {"valueAnimation": "true", "formatter": "{value|0}"},
-                    "data": [{"value": ctv_EL, "name": "CTV"}],
+                    "axisLine": {"lineStyle": {"width": 10}},
+                    "progress": {"show": True, "width": 10},
+                    "detail": {"valueAnimation": True, "formatter": "{value}M"},
+                    "data": [{"value": ctv_EL/1_000_000, "name": "SOV"}],
                 }
             ],
         }
+    st_echarts(options=ctv_options, width="100%")
 
     #Velocimetro para SOV
     sov_options = {
-            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "series": [
                 {
-                    "name": "Expected Lost",
+                    "name": "Revenue",
                     "type": "gauge",
-                    "axisLine": {
-                        "lineStyle": {
-                            "width": 10,
-                        },
-                    },
-                    "progress": {"show": "true", "width": 10},
-                    "detail": {"valueAnimation": "true", "formatter": "{value|0}"},
-                    "data": [{"value": sov_EL, "name": "SOV"}],
+                    "axisLine": {"lineStyle": {"width": 10}},
+                    "progress": {"show": True, "width": 10},
+                    "detail": {"valueAnimation": True, "formatter": "{value}M"},
+                    "data": [{"value": sov_EL/1_000_000, "name": "SOV"}],
                 }
             ],
         }
+    st_echarts(options=sov_options, width="100%")
 
-    #Velocimetro para Helicopter
-    """heli_options = {
-            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
-            "series": [
-                {
-                    "name": "Expected Lost",
-                    "type": "gauge",
-                    "axisLine": {
-                        "lineStyle": {
-                            "width": 10,
-                        },
-                    },
-                    "progress": {"show": "true", "width": 10,},
-                    "detail": {"valueAnimation": "true", "formatter": "{value|0}"},
-                    "data": [{"value": heli_EL, "name": "Helicopter"}],
-                }
-            ],
-        }"""
-    
+    #Velocimetro para Helicopter   
     heli_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
             "series": [
