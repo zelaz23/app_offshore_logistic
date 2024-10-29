@@ -121,7 +121,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'heli_day_cost':[heli_day_cost],
                          })
 
-    st.write("Registered sucessfully:")#, local_data)
+    st.write("Registered sucessfully")#, local_data)
 
     # Mensaje de verificación en caso de que no se cargue un archivo
     if uploaded_file is None:
@@ -198,7 +198,14 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                     "min": 100000,
                     "max": 2000000,
                     "axisLine": {"lineStyle": {"width": 10}},
-                    "axisLabel": {"formatter": lambda value: f"{int(value/1000)}K" if value < 1000000 else f"{int(value/1000000)}M"},
+                    "axisLabel": {"formatter": """function (value) {
+                                    if (value >= 1000000) {
+                                        return (value / 1000000) + 'M';
+                                    } else {
+                                        return (value / 1000) + 'K';
+                                    }
+                                }"""
+            },
                     "progress": {"show": True, "width": 10},
                     "detail": {"show": False},
                     "data": [{"value": round(ctv_EL), "name": "CTV"}],
