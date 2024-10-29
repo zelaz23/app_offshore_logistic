@@ -268,13 +268,13 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     col1,col2,col3 = st.columns(3)
     with col1:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected CTV CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(value = ctv_emissions_str)
+        st.metric(value = ctv_emissions)
     with col2:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected SOV CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(value = sov_emissions_str)
+        st.metric(value = sov_emissions)
     with col3:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual expected Helicopter CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(value = heli_emissions_str)
+        st.metric(value = heli_emissions)
 
 else:
     st.write('DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE')
