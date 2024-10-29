@@ -257,27 +257,27 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Representarlos en la app
     col1,col2,col3 = st.columns(3)
-    image_path = "./image_ctv.png"
+    #image_path = "./image_ctv.png"
     #image_path = os.path.join(os.getcwd(), "image_ctv.png")
 
     with col1:
-        #st.image("image_ctv.png", width=250)
-        st.markdown(
-            f"""
-            <div style="text-align: center;">
-            <img src="data:image/png;base64,{image_path}" alt="CTV Image" style="width:250px; height:200px;">
-            </div>
-            """, 
-            unsafe_allow_html=True
-        )
+        st.image("r_image_ctv.png", width=250)
+        #st.markdown(
+        #    f"""
+        #    <div style="text-align: center;">
+        #    <img src="data:image/png;base64,{image_path}" alt="CTV Image" style="width:250px; height:200px;">
+        #    </div>
+        #    """, 
+        #    unsafe_allow_html=True
+        #)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
-        st.image("image_sov_1.png", width=250)
+        st.image("r_image_sov_1.png", width=250)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for SOV</h3>", unsafe_allow_html=True)
         st_echarts(options=sov_options, width="110%", key="sov_gauge")
     with col3:
-        st.image("image_heli_1.png",  width=250)
+        st.image("r_image_heli_2.png",  width=250)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for Helicopter</h3>", unsafe_allow_html=True)
         st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
