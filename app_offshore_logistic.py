@@ -256,7 +256,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         }
 
 
-    #Representarlos en la app
+    #Representar los velocímetros en la app
     col1,col2,col3 = st.columns(3)
     with col1:
         st.image("r_image_ctv.png", width=400)
@@ -271,17 +271,27 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Lost for Helicopter</h3>", unsafe_allow_html=True)
         st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
-    #Prescripcion
+    #PRepresentar las emisiones de CO2 en la app
     col1,col2,col3 = st.columns(3)
     with col1:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str)
+        st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str + ' ton')
     with col2:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="SOV CO2 Emissions", value = sov_emissions_str)
+        st.metric(label="SOV CO2 Emissions", value = sov_emissions_str + ' ton')
     with col3:
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="Helicopter CO2 Emissions", value = heli_emissions_str)
+        #st.metric(label="Helicopter CO2 Emissions", value = heli_emissions_str + ' ton')
+        # Formato usando markdown para personalizar el tamaño y estilo de la fuente
+    st.markdown(
+        f"<h3 style='text-align: center; font-size: 24px;'>CTV CO2 Emissions</h3>",
+        unsafe_allow_html=True
+        )
+        # Mostrar el valor debajo del título en un tamaño mayor
+    st.markdown(
+        f"<p style='text-align: center; font-size: 40px; font-weight: bold;'>{heli_emissions_str + ' ton'}</p>",
+        unsafe_allow_html=True
+        )
 
 else:
     st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
