@@ -238,6 +238,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 {
                     "name": "Revenue",
                     "type": "gauge",
+                    "min": 500,
+                    "max": 2000,
                     "axisLine": {"lineStyle": {"width": 10}},
                     "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
@@ -266,6 +268,8 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                 {
                     "name": "Revenue",
                     "type": "gauge",
+                    "min": 500,
+                    "max": 2000,
                     "axisLine": {"lineStyle": {"width": 10}},
                     "axisLabel": {"show": True, "distance": 5, "formatter": "{value}K",},
                     "progress": {"show": True, "width": 10},
