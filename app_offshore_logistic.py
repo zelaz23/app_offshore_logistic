@@ -136,14 +136,14 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Ejecutar codigo_de_ejecucion_v1
         # Procesar los datos cargados
     df_procesado = procesar_datos(df, local_data)
-    #df_procesado = df_procesado.groupby(['Year']).agg({
-    #            'ctv_expec_lost': 'sum',
-    #            'sov_expec_lost':'sum',
-    #            'heli_expec_lost':'sum',
-    #            'ctv_emissions': 'sum',
-    #            'sov_emissions':'sum',
-    #            'heli_emissions':'sum'
-    #            }).reset_index()
+    df_procesado = df_procesado.groupby(['Year']).agg({
+                'ctv_expec_lost': 'sum',
+                'sov_expec_lost':'sum',
+                'heli_expec_lost':'sum',
+                'ctv_emissions': 'sum',
+                'sov_emissions':'sum',
+                'heli_emissions':'sum'
+                }).reset_index()
     
     st.write("Data after processing:", df_procesado)
     
