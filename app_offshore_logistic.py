@@ -46,7 +46,7 @@ with st.sidebar:
     if lat_options[selected_option] is not None:
         lat_OSW = lat_options[selected_option]
     else:
-        lat_OSW = st.number_input('OSW Location lat', -90.000, 90.000, format="%.3f")
+        lat_OSW = st.number_input('OSW Location lat, type one', -90.000, 90.000, format="%.3f")
 
     #st.write("Latitud seleccionada:", lat_OSW)
 
