@@ -40,7 +40,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_OSW = st.selectbox('Select latitude: ', options=list(lat_OSW_options.keys()))
+    selected_option_lat_OSW = st.selectbox('Select latitude: ', options=list(lat_OSW_options.keys()), keys="lat_OSW_selectbox")
     selected_option_lat_OSW_value = lat_OSW_options[selected_option_lat_OSW]
 
     # Determina el valor de latitud según la opción seleccionada
@@ -65,7 +65,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_OSW = st.selectbox('Select longitude or type one: ', options=list(lon_OSW_options.keys()))
+    selected_option_lon_OSW = st.selectbox('Select longitude or type one: ', options=list(lon_OSW_options.keys()), keys="lon_OSW_selectbox")
     selected_option_lon_OSW_value = lon_OSW_options[selected_option_lon_OSW]
 
     # Determina el valor de latitud según la opción seleccionada
@@ -82,14 +82,14 @@ with st.sidebar:
 
     # ------------------------ lat_sea_port: Lista de valores predefinidos con nombres ---------------------------------
     lat_sea_port_options = {
-        "Bay of Biscay": 46.725,
-        "North sea": 52.578,
-        "Baltic sea": 54.515,
-        "Taiwan": 25.117,
+        "Seaport Bay of Biscay": 46.725,
+        "Seaport North sea": 52.578,
+        "Seaport Baltic sea": 54.515,
+        "Seaport Taiwan": 25.117,
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_sea_port = st.selectbox('Select latitude or type one: ', options=list(lat_sea_port_options.keys()))
+    selected_option_lat_sea_port = st.selectbox('Select latitude or type one: ', options=list(lat_sea_port_options.keys()), keys="lat_sea_port_selectbox")
     selected_option_lat_sea_port_value = lat_sea_port_options[selected_option_lat_sea_port]
 
     # Determina el valor de latitud según la opción seleccionada
@@ -106,14 +106,14 @@ with st.sidebar:
 
     # ------------------------ lon_sea_port: Lista de valores predefinidos con nombres -------------------------------------
     lon_sea_port_options = {
-        "Bay of Biscay": -2.350,
-        "North sea": 1.738,
-        "Baltic sea": 13.654,
-        "Taiwan": 121.244,
+        "Seaport Bay of Biscay": -2.350,
+        "Seaport North sea": 1.738,
+        "Seaport Baltic sea": 13.654,
+        "Seaport Taiwan": 121.244,
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_sea_port = st.selectbox('Select longitude or type one: ', options=list(lon_sea_port_options.keys()))
+    selected_option_lon_sea_port = st.selectbox('Select longitude or type one: ', options=list(lon_sea_port_options.keys()), keys="lon_sea_port_selectbox")
     selected_option_lon_sea_port_value = lon_sea_port_options[selected_option_lon_sea_port]
 
     # Determina el valor de latitud según la opción seleccionada
@@ -130,14 +130,14 @@ with st.sidebar:
 
     # ------------------------ lat_heli_port: Lista de valores predefinidos con nombres -------------------------------------
     lat_heli_port_options = {
-        "Bay of Biscay": 46.725,
-        "North sea": 52.635,
-        "Baltic sea": 54.515,
-        "Taiwan": 25.117,
+        "Heliport Bay of Biscay": 46.725,
+        "Heliport North sea": 52.635,
+        "Heliport Baltic sea": 54.515,
+        "Heliport Taiwan": 25.117,
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_heli_port = st.selectbox('Select latitude or type one: ', options=list(lat_heli_port_options.keys()))
+    selected_option_lat_heli_port = st.selectbox('Select latitude or type one: ', options=list(lat_heli_port_options.keys()), keys="lat_heli_port_selectbox")
     selected_option_lat_heli_port_value = lat_heli_port_options[selected_option_lat_heli_port]
 
     # Determina el valor de latitud según la opción seleccionada
@@ -154,14 +154,14 @@ with st.sidebar:
 
     # ------------------------ lon_heli_port: Lista de valores predefinidos con nombres --------------------------------------
     lon_heli_port_options = {
-        "Bay of Biscay": -2.350,
-        "North sea": 1.726,
-        "Baltic sea": 13.654,
-        "Taiwan": 121.244,
+        "Heliport Bay of Biscay": -2.350,
+        "Heliport North sea": 1.726,
+        "Heliport Baltic sea": 13.654,
+        "Heliport Taiwan": 121.244,
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_heli_port = st.selectbox('Select longitude or type one: ', options=list(lon_heli_port_options.keys()))
+    selected_option_lon_heli_port = st.selectbox('Select longitude or type one: ', options=list(lon_heli_port_options.keys()), keys="lon_heli_port_selectbox")
     selected_option_lon_heli_port_value = lon_heli_port_options[selected_option_lon_heli_port]
 
     # Determina el valor de latitud según la opción seleccionada
