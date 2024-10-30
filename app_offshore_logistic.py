@@ -275,29 +275,29 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
 
     #Representar las emisiones de CO2 en la app
     col1,col2,col3 = st.columns(3)
-    #with col1:
-        #st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        #st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str + ' ton')
-    
-    #with col1:
-    #    st.markdown("<h3 style='text-align: center;'>CTV CO2 Emissions</h3>", unsafe_allow_html=True)
-    #    st.metric(label="", value=f"{ctv_emissions_str} ton")
-
     with col1:
         st.markdown(f"""
             <div style="text-align: center;">
-            <h3>CTV CO2 Emissions</h3>
+            <h3>CTV CO₂ Emissions</h3>
             <p style="font-size: 2em; font-weight: bold;">{ctv_emissions_str} ton</p>
             </div>
         """, unsafe_allow_html=True)
 
-
     with col2:
-        #st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="SOV CO2 Emissions", value = sov_emissions_str + ' ton')
+        st.markdown(f"""
+            <div style="text-align: center;">
+            <h3>SOV CO₂ Emissions</h3>
+            <p style="font-size: 2em; font-weight: bold;">{sov_emissions_str} ton</p>
+            </div>
+        """, unsafe_allow_html=True)
+
     with col3:
-        #st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="Helicopter CO2 Emissions", value = heli_emissions_str + ' ton')
+        st.markdown(f"""
+            <div style="text-align: center;">
+            <h3>Helicopter CO₂ Emissions</h3>
+            <p style="font-size: 2em; font-weight: bold;">{heli_emissions_str} ton</p>
+            </div>
+        """, unsafe_allow_html=True)
 
 else:
     st.write('UPLOAD METEOROLOGIC DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
