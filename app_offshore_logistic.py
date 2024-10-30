@@ -10,7 +10,7 @@ from PIL import Image
 #CONFIGURACION DE LA PÁGINA
 st.set_page_config(
      page_title = 'Offshore Wind Farm Logistic Analyzer',
-     page_icon = 'image1.png',
+     page_icon = 'image3.png',
      layout = 'wide')
 
 #MAIN
