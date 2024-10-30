@@ -77,15 +77,15 @@ with st.sidebar:
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_seaport:
         # Si selecciona "Other", habilitar el número manual
-        lat_OSW = st.number_input('Type seaport latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
-        lon_OSW = st.number_input('Type seaport longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+        lat_sea_port = st.number_input('Type seaport latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lon_sea_port = st.number_input('Type seaport longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
 
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
         try:
             latitude, longitude = sea_port_options[selected_option_seaport]
-            lat_OSW = latitude
-            lon_OSW = longitude
+            lat_sea_port = latitude
+            lon_sea_port = longitude
             st.write("latitude:", latitude)
             st.write("longitude:", longitude)
         except IndexError:
@@ -106,15 +106,15 @@ with st.sidebar:
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_heliport:
         # Si selecciona "Other", habilitar el número manual
-        lat_OSW = st.number_input('Type heliport latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
-        lon_OSW = st.number_input('Type heliport longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+        lat_heli_port = st.number_input('Type heliport latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lon_heli_port = st.number_input('Type heliport longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
 
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
         try:
             latitude, longitude = heli_port_options[selected_option_heliport]
-            lat_OSW = latitude
-            lon_OSW = longitude
+            lat_heli_port = latitude
+            lon_heli_port = longitude
             st.write("latitude:", latitude)
             st.write("longitude:", longitude)
         except IndexError:
