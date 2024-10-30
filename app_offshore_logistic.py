@@ -344,7 +344,7 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     #Representar los velocímetros en la app
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.image("r_image_ctv.png", width=400)
+        st.image("r_image_ctv_2.png", width=400)
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Loss for CTV</h3>", unsafe_allow_html=True)
         st_echarts(options=ctv_options, width="110%", key="ctv_gauge")
     with col2:
