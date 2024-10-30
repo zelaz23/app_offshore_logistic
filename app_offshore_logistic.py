@@ -32,7 +32,9 @@ with st.sidebar:
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
 
-    test_location_options = {
+
+    # ----------------------- lat_OSW & lon_OSW: Lista de valores predefinidos con nombres --------------------------------------
+    OSW_location_options = {
         "": (0, 0),
         "Bay of Biscay": (46.875, -2.514),
         "North sea": (53.041, 3.363),
@@ -41,10 +43,10 @@ with st.sidebar:
         "Other": (None, None)}
 
     # Desplegable de opciones
-    selected_location = st.selectbox('Select location: ', options=list(test_location_options.keys()), key="test_location_selectbox")
+    selected_option_OSW = st.selectbox('Select OSW location: ', options=list(OSW_location_options.keys()), key="OSW_location_selectbox")
 
     # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_location:
+    if "Other" in selected_option_OSW:
         # Si selecciona "Other", habilitar el número manual
         lat_OSW = st.number_input('Type OSW latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
         lon_OSW = st.number_input('Type OSW longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
@@ -52,7 +54,7 @@ with st.sidebar:
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
         try:
-            latitude, longitude = test_location_options[selected_location]
+            latitude, longitude = OSW_location_options[selected_option_OSW]
             lat_OSW = latitude
             lon_OSW = longitude
             st.write("latitude:", latitude)
@@ -60,165 +62,64 @@ with st.sidebar:
         except IndexError:
             st.error("Wrong format, please type a correct value")
 
-
-
-
-
-
-
-
-
-
-    # ----------------------- lat_OSW: Lista de valores predefinidos con nombres --------------------------------------
-    lat_OSW_options = {
-        "": 0,
-        "Bay of Biscay": 46.875,
-        "North sea": 53.041,
-        "Baltic sea": 54.834,
-        "Taiwan": 24.749,
-        "Other": None}
+    # ------------------------ lat_sea_port & lon_sea_port: Lista de valores predefinidos con nombres ---------------------------------
+    sea_port_options = {
+        "": (0,0),
+        "Seaport Bay of Biscay": (46.725,-2.350)
+        "Seaport North sea": (52.578,1.738)
+        "Seaport Baltic sea": (54.515,13.654)
+        "Seaport Taiwan": (25.117,121.244)
+        "Other": (None,None)}
 
     # Desplegable de opciones
-    selected_option_lat_OSW = st.selectbox('Select OSW latitude: ', options=list(lat_OSW_options.keys()), key="lat_OSW_selectbox")
-    selected_option_lat_OSW_value = lat_OSW_options[selected_option_lat_OSW]
+    selected_option_seaport = st.selectbox('Select seaport: ', options=list(sea_port_options.keys()), key="seaport_location_selectbox")
 
     # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_option_lat_OSW:
+    if "Other" in selected_option_seaport:
         # Si selecciona "Other", habilitar el número manual
-        lat_OSW = st.number_input('Type OSW latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lat_OSW = st.number_input('Type seaport latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lon_OSW = st.number_input('Type seaport longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
         try:
-            lat_OSW = float(selected_option_lat_OSW_value)
-            st.write("latitude:", selected_option_lat_OSW_value)
+            latitude, longitude = sea_port_options[selected_option_seaport]
+            lat_OSW = latitude
+            lon_OSW = longitude
+            st.write("latitude:", latitude)
+            st.write("longitude:", longitude)
         except IndexError:
             st.error("Wrong format, please type a correct value")
 
-    
-    # ----------------------- lon_OSW: Lista de valores predefinidos con nombres ---------------------------------------
-    lon_OSW_options = {
-        "": 0,
-        "Bay of Biscay": -2.514,
-        "North sea": 2.934,
-        "Baltic sea": 14.068,
-        "Taiwan": 120.802,
-        "Other": None}
+    # ------------------------ lat_heli_port & lon_heli_port: Lista de valores predefinidos con nombres -------------------------------------
+    heli_port_options = {
+        "": (0,0),
+        "Heliport Bay of Biscay": (46.725,-2.350)
+        "Heliport North sea": (52.635,1.726)
+        "Heliport Baltic sea": (54.515,13.654)
+        "Heliport Taiwan": (25.117,121.244)
+        "Other": (None,None)}
 
     # Desplegable de opciones
-    selected_option_lon_OSW = st.selectbox('Select OSW longitude: ', options=list(lon_OSW_options.keys()), key="lon_OSW_selectbox")
-    selected_option_lon_OSW_value = lon_OSW_options[selected_option_lon_OSW]
+    selected_option_heliport = st.selectbox('Select heliport: ', options=list(heli_port_options.keys()), key="heliport_location_selectbox")
 
     # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_option_lon_OSW:
+    if "Other" in selected_option_heliport:
         # Si selecciona "Other", habilitar el número manual
-        lon_OSW = st.number_input('Type OSW longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+        lat_OSW = st.number_input('Type heliport latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lon_OSW = st.number_input('Type heliport longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
         try:
-            lon_OSW = float(selected_option_lon_OSW_value)
-            st.write("longitude:", selected_option_lon_OSW_value)
+            latitude, longitude = heli_port_options[selected_option_heliport]
+            lat_OSW = latitude
+            lon_OSW = longitude
+            st.write("latitude:", latitude)
+            st.write("longitude:", longitude)
         except IndexError:
             st.error("Wrong format, please type a correct value")
 
-    # ------------------------ lat_sea_port: Lista de valores predefinidos con nombres ---------------------------------
-    lat_sea_port_options = {
-        "": 0,
-        "Seaport Bay of Biscay": 46.725,
-        "Seaport North sea": 52.578,
-        "Seaport Baltic sea": 54.515,
-        "Seaport Taiwan": 25.117,
-        "Other": None}
-
-    # Desplegable de opciones
-    selected_option_lat_sea_port = st.selectbox('Select sea port latitude: ', options=list(lat_sea_port_options.keys()), key="lat_sea_port_selectbox")
-    selected_option_lat_sea_port_value = lat_sea_port_options[selected_option_lat_sea_port]
-
-    # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_option_lat_sea_port:
-        # Si selecciona "Other", habilitar el número manual
-        lat_sea_port = st.number_input('Type sea port latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
-    else:
-        # Si selecciona una opción predefinida, extraer el valor numérico
-        try:
-            lat_sea_port = float(selected_option_lat_sea_port_value)
-            st.write("latitude:", selected_option_lat_sea_port_value)
-        except IndexError:
-            st.error("Wrong format, please type a correct value")
-
-    # ------------------------ lon_sea_port: Lista de valores predefinidos con nombres -------------------------------------
-    lon_sea_port_options = {
-        "": 0,
-        "Seaport Bay of Biscay": -2.350,
-        "Seaport North sea": 1.738,
-        "Seaport Baltic sea": 13.654,
-        "Seaport Taiwan": 121.244,
-        "Other": None}
-
-    # Desplegable de opciones
-    selected_option_lon_sea_port = st.selectbox('Select sea port longitude: ', options=list(lon_sea_port_options.keys()), key="lon_sea_port_selectbox")
-    selected_option_lon_sea_port_value = lon_sea_port_options[selected_option_lon_sea_port]
-
-    # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_option_lon_sea_port:
-        # Si selecciona "Other", habilitar el número manual
-        lon_sea_port = st.number_input('Type sea port longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
-    else:
-        # Si selecciona una opción predefinida, extraer el valor numérico
-        try:
-            lon_sea_port = float(selected_option_lon_sea_port_value)
-            st.write("longitude:", selected_option_lon_sea_port_value)
-        except IndexError:
-            st.error("Wrong format, please type a correct value")
-
-    # ------------------------ lat_heli_port: Lista de valores predefinidos con nombres -------------------------------------
-    lat_heli_port_options = {
-        "": 0,
-        "Heliport Bay of Biscay": 46.725,
-        "Heliport North sea": 52.635,
-        "Heliport Baltic sea": 54.515,
-        "Heliport Taiwan": 25.117,
-        "Other": None}
-
-    # Desplegable de opciones
-    selected_option_lat_heli_port = st.selectbox('Select heli port latitude: ', options=list(lat_heli_port_options.keys()), key="lat_heli_port_selectbox")
-    selected_option_lat_heli_port_value = lat_heli_port_options[selected_option_lat_heli_port]
-
-    # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_option_lat_heli_port:
-        # Si selecciona "Other", habilitar el número manual
-        lat_heli_port = st.number_input('Type heli port latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
-    else:
-        # Si selecciona una opción predefinida, extraer el valor numérico
-        try:
-            lat_heli_port = float(selected_option_lat_heli_port_value)
-            st.write("latitude:", selected_option_lat_heli_port_value)
-        except IndexError:
-            st.error("Wrong format, please type a correct value")
-
-    # ------------------------ lon_heli_port: Lista de valores predefinidos con nombres --------------------------------------
-    lon_heli_port_options = {
-        "": 0,
-        "Heliport Bay of Biscay": -2.350,
-        "Heliport North sea": 1.726,
-        "Heliport Baltic sea": 13.654,
-        "Heliport Taiwan": 121.244,
-        "Other": None}
-
-    # Desplegable de opciones
-    selected_option_lon_heli_port = st.selectbox('Select heli port longitude: ', options=list(lon_heli_port_options.keys()), key="lon_heli_port_selectbox")
-    selected_option_lon_heli_port_value = lon_heli_port_options[selected_option_lon_heli_port]
-
-    # Determina el valor de latitud según la opción seleccionada
-    if "Other" in selected_option_lon_heli_port:
-        # Si selecciona "Other", habilitar el número manual
-        lon_heli_port = st.number_input('Type heli port longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
-    else:
-        # Si selecciona una opción predefinida, extraer el valor numérico
-        try:
-            lon_heli_port = float(selected_option_lon_heli_port_value)
-            st.write("longitude:", selected_option_lon_heli_port_value)
-        except IndexError:
-            st.error("Wrong format, please type a correct value")
     
     # Datos de la instalacion
     wtg = st.number_input('WTG installed', 1, 200)
