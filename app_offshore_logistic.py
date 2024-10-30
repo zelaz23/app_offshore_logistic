@@ -279,10 +279,17 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         #st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
         #st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str + ' ton')
     
-    with col1:
-        st.markdown("<h3 style='text-align: center;'>CTV CO2 Emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="", value=f"{ctv_emissions_str} ton")
+    #with col1:
+    #    st.markdown("<h3 style='text-align: center;'>CTV CO2 Emissions</h3>", unsafe_allow_html=True)
+    #    st.metric(label="", value=f"{ctv_emissions_str} ton")
 
+    with col1:
+        st.markdown(f"""
+            <div style="text-align: center;">
+            <h3>CTV CO2 Emissions</h3>
+            <p style="font-size: 2em; font-weight: bold;">{ctv_emissions_str} ton</p>
+            </div>
+        """, unsafe_allow_html=True)
 
 
     with col2:
