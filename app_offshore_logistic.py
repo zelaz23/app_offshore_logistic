@@ -31,6 +31,44 @@ with st.sidebar:
 
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
+
+    test_location_options = {
+        "": (0, 0),
+        "Bay of Biscay": (46.875, -2.514),
+        "North sea": (53.041, 3.363),
+        "Baltic sea": (54.834, 19.897),
+        "Taiwan": (24.749, 121.75),
+        "Other": (None, None)}
+
+    # Desplegable de opciones
+    selected_location = st.selectbox('Select location: ', options=list(OSW_location_options.keys()), key="OSW_location_selectbox")
+
+    # Determina el valor de latitud según la opción seleccionada
+    if "Other" in selected_location:
+        # Si selecciona "Other", habilitar el número manual
+        lat_OSW = st.number_input('Type OSW latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lon_OSW = st.number_input('Type OSW longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+
+    else:
+        # Si selecciona una opción predefinida, extraer el valor numérico
+        try:
+            latitude, longitude = test_location_options[selected_location]
+            lat_OSW = latitude
+            lon_OSW = longitude
+            st.write("latitude:", latitude)
+            st.write("longitude:", longitude)
+        except IndexError:
+            st.error("Wrong format, please type a correct value")
+
+
+
+
+
+
+
+
+
+
     # ----------------------- lat_OSW: Lista de valores predefinidos con nombres --------------------------------------
     lat_OSW_options = {
         "": 0,
