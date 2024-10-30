@@ -40,7 +40,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_OSW = st.selectbox('Select latitude: ', options=list(lat_OSW_options.values()))
+    selected_option_lat_OSW = st.selectbox('Select latitude: ', options=list(lat_OSW_options.keys()))
     selected_option_value = lat_OSW_options[selected_option_lat_OSW]
     st.write("Select:", selected_option_value)
 
