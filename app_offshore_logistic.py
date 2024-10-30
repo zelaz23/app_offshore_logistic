@@ -40,15 +40,18 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_OSW = st.selectbox('Select a latitude or type one: ', options=list(lat_OSW_options.keys()))
+    selected_option_lat_OSW = st.selectbox('Select latitude or type one: ', options=list(lat_OSW_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_OSW:
         # Si selecciona "Other", habilitar el número manual
-        lat_OSW = st.number_input('Type latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
+        lat_OSW = st.number_input('Type OSW latitude:', min_value=-90.000, max_value=90.000, format="%.3f", value=0.000)
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
-        lat_OSW = float(selected_option_lat_OSW.split(": ")[1])
+        try:
+            lat_OSW = float(selected_option_lat_OSW.split(": ")[1])
+        except IndexError:
+            st.error("Wrong format, please type a correct value")
 
     
     # ----------------------- lon_OSW: Lista de valores predefinidos con nombres ---------------------------------------
@@ -60,12 +63,12 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_OSW = st.selectbox('Select a longitude or type one: ', options=list(lon_OSW_options.keys()))
+    selected_option_lon_OSW = st.selectbox('Select longitude or type one: ', options=list(lon_OSW_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lon_OSW:
         # Si selecciona "Other", habilitar el número manual
-        lon_OSW = st.number_input('Type longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
+        lon_OSW = st.number_input('Type OSW longitude:', min_value=-180.000, max_value=180.000, format="%.3f", value=0.000)
     else:
         # Si selecciona una opción predefinida, extraer el valor numérico
         lon_OSW = float(selected_option_lon_OSW.split(": ")[1])
@@ -79,7 +82,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_sea_port = st.selectbox('Select a latitude or type one: ', options=list(lat_sea_port_options.keys()))
+    selected_option_lat_sea_port = st.selectbox('Select latitude or type one: ', options=list(lat_sea_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_sea_port:
@@ -98,7 +101,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_sea_port = st.selectbox('Select a longitude or type one: ', options=list(lon_sea_port_options.keys()))
+    selected_option_lon_sea_port = st.selectbox('Select longitude or type one: ', options=list(lon_sea_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lon_sea_port:
@@ -117,7 +120,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_heli_port = st.selectbox('Select a latitude or type one: ', options=list(lat_heli_port_options.keys()))
+    selected_option_lat_heli_port = st.selectbox('Select latitude or type one: ', options=list(lat_heli_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_heli_port:
@@ -136,7 +139,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_heli_port = st.selectbox('Select a longitude or type one: ', options=list(lon_heli_port_options.keys()))
+    selected_option_lon_heli_port = st.selectbox('Select longitude or type one: ', options=list(lon_heli_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lon_heli_port:
