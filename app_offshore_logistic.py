@@ -1,9 +1,9 @@
-from codigo_de_ejecucion_v1 import *
+from codigo_de_ejecucion import *
 import streamlit as st
 from streamlit_echarts import st_echarts
 from datetime import time
 import pandas as pd
-import os
+#import os
 from PIL import Image
 
 
@@ -126,16 +126,16 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
                          'heli_day_cost':[heli_day_cost],
                          })
 
-    #st.write("Data registered sucessfully --> Processing...")#, local_data)
+    #st.write("Data registered sucessfully --> Processing...", local_data)
 
     # Mensaje de verificación en caso de que no se cargue un archivo
     if uploaded_file is None:
-        st.write("Please, upload meteorolgic data to continue.")
+        st.write("Please, upload meteorolgic data to continue")
 
 
 #CALCULAR RIESGO
 
-    #Ejecutar codigo_de_ejecucion_v1
+    #Ejecutar codigo_de_ejecucion
         # Procesar los datos cargados
     df_procesado = procesar_datos(df, local_data)
     df_procesado = df_procesado.groupby(['Year']).agg({
@@ -182,7 +182,6 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
     heli_emissions_str = f"{round(heli_emissions):,}"
 
     #Velocimetros
-    #Codigo de velocimetros tomado de https://towardsdatascience.com/5-streamlit-components-to-build-better-applications-71e0195c82d4
     #Velocimetro para CTV
     ctv_options = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}M"},
@@ -274,11 +273,18 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Expected Loss for Helicopter</h3>", unsafe_allow_html=True)
         st_echarts(options=heli_options, width="110%", key="heli_gauge")
 
-    #PRepresentar las emisiones de CO2 en la app
+    #Representar las emisiones de CO2 en la app
     col1,col2,col3 = st.columns(3)
-    with col1:
+    #with col1:
         #st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
-        st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str + ' ton')
+        #st.metric(label="CTV CO2 Emissions", value = ctv_emissions_str + ' ton')
+    
+    with col1:
+        st.markdown("<h3 style='text-align: center;'>CTV CO2 Emissions</h3>", unsafe_allow_html=True)
+        st.metric(label="", value=f"{ctv_emissions_str} ton")
+
+
+
     with col2:
         #st.markdown("<h3 style='text-align: center; font-size: 1.8em;'>Anual CO2 emissions</h3>", unsafe_allow_html=True)
         st.metric(label="SOV CO2 Emissions", value = sov_emissions_str + ' ton')
@@ -287,4 +293,4 @@ if st.sidebar.button('CALCULATE BEST OPTION', key="calculate_option_button"):
         st.metric(label="Helicopter CO2 Emissions", value = heli_emissions_str + ' ton')
 
 else:
-    st.write('UPLOAD METEOROLOGICAL DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
+    st.write('UPLOAD METEOROLOGIC DATA, DEFINE THE PARAMETERS TO ANALIZE AND CLIC IN CALCULATE BEST OPTION')
