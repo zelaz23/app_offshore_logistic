@@ -32,7 +32,7 @@ with st.sidebar:
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
     # Lista de valores predefinidos con nombres
-    lat_options = {
+    lat_OSW_options = {
         "Bay of Biscay": 46.875,
         "North sea": 53.041,
         "Baltic sea": 54.834,
@@ -40,15 +40,15 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option = st.selectbox('Select a latitude or type one:', options=list(lat_options.keys()))
+    selected_option = st.selectbox('Select a latitude or type one:', options=list(lat_OSW_options.keys()))
 
     # Número de latitud basado en la selección
-    if lat_options[selected_option] is not None:
-        lat_OSW = lat_options[selected_option]
+    if lat_OSW_options[selected_option] is not None:
+        lat_OSW = lat_OSW_options[selected_option]
     else:
         lat_OSW = st.number_input('OSW Location lat, type one', -90.000, 90.000, format="%.3f")
 
-    #st.write("Latitud seleccionada:", lat_OSW)
+    st.write("Latitud seleccionada:", lat_OSW_options)
 
 
 
