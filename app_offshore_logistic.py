@@ -40,7 +40,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_OSW = st.selectbox('Select a latitude or type one:', options=list(lat_OSW_options.keys()))
+    selected_option_lat_OSW = st.selectbox('Select a latitude or type one: ', options=list(lat_OSW_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_OSW:
@@ -60,7 +60,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_OSW = st.selectbox('Select a longitude or type one:', options=list(lon_OSW_options.keys()))
+    selected_option_lon_OSW = st.selectbox('Select a longitude or type one: ', options=list(lon_OSW_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lon_OSW:
@@ -79,7 +79,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_sea_port = st.selectbox('Select a latitude or type one:', options=list(lat_sea_port_options.keys()))
+    selected_option_lat_sea_port = st.selectbox('Select a latitude or type one: ', options=list(lat_sea_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_sea_port:
@@ -98,7 +98,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_sea_port = st.selectbox('Select a longitude or type one:', options=list(lon_sea_port_options.keys()))
+    selected_option_lon_sea_port = st.selectbox('Select a longitude or type one: ', options=list(lon_sea_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lon_sea_port:
@@ -117,7 +117,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lat_heli_port = st.selectbox('Select a latitude or type one:', options=list(lat_heli_port_options.keys()))
+    selected_option_lat_heli_port = st.selectbox('Select a latitude or type one: ', options=list(lat_heli_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_heli_port:
@@ -136,7 +136,7 @@ with st.sidebar:
         "Other": None}
 
     # Desplegable de opciones
-    selected_option_lon_heli_port = st.selectbox('Select a longitude or type one:', options=list(lon_heli_port_options.keys()))
+    selected_option_lon_heli_port = st.selectbox('Select a longitude or type one: ', options=list(lon_heli_port_options.keys()))
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lon_heli_port:
