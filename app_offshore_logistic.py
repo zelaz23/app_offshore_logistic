@@ -33,7 +33,7 @@ with st.sidebar:
     # Coordenadas de las ubicaciones
     # ----------------------- lat_OSW: Lista de valores predefinidos con nombres --------------------------------------
     lat_OSW_options = {
-        "": 'Select',
+        "": 0,
         "Bay of Biscay": 46.875,
         "North sea": 53.041,
         "Baltic sea": 54.834,
@@ -59,7 +59,7 @@ with st.sidebar:
     
     # ----------------------- lon_OSW: Lista de valores predefinidos con nombres ---------------------------------------
     lon_OSW_options = {
-        "": 'Select',
+        "": 0,
         "Bay of Biscay": -2.514,
         "North sea": 2.934,
         "Baltic sea": 14.068,
@@ -84,7 +84,7 @@ with st.sidebar:
 
     # ------------------------ lat_sea_port: Lista de valores predefinidos con nombres ---------------------------------
     lat_sea_port_options = {
-        "": 'Select',
+        "": 0,
         "Seaport Bay of Biscay": 46.725,
         "Seaport North sea": 52.578,
         "Seaport Baltic sea": 54.515,
@@ -109,7 +109,7 @@ with st.sidebar:
 
     # ------------------------ lon_sea_port: Lista de valores predefinidos con nombres -------------------------------------
     lon_sea_port_options = {
-        "": 'Select',
+        "": 0,
         "Seaport Bay of Biscay": -2.350,
         "Seaport North sea": 1.738,
         "Seaport Baltic sea": 13.654,
@@ -134,7 +134,7 @@ with st.sidebar:
 
     # ------------------------ lat_heli_port: Lista de valores predefinidos con nombres -------------------------------------
     lat_heli_port_options = {
-        "": 'Select',
+        "": 0,
         "Heliport Bay of Biscay": 46.725,
         "Heliport North sea": 52.635,
         "Heliport Baltic sea": 54.515,
@@ -159,7 +159,7 @@ with st.sidebar:
 
     # ------------------------ lon_heli_port: Lista de valores predefinidos con nombres --------------------------------------
     lon_heli_port_options = {
-        "": 'Select',
+        "": 0,
         "Heliport Bay of Biscay": -2.350,
         "Heliport North sea": 1.726,
         "Heliport Baltic sea": 13.654,
