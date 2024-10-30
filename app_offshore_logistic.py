@@ -65,10 +65,10 @@ with st.sidebar:
     # ------------------------ lat_sea_port & lon_sea_port: Lista de valores predefinidos con nombres ---------------------------------
     sea_port_options = {
         "": (0,0),
-        "Seaport Bay of Biscay": (46.725,-2.350)
-        "Seaport North sea": (52.578,1.738)
-        "Seaport Baltic sea": (54.515,13.654)
-        "Seaport Taiwan": (25.117,121.244)
+        "Seaport Bay of Biscay": (46.725,-2.350),
+        "Seaport North sea": (52.578,1.738),
+        "Seaport Baltic sea": (54.515,13.654),
+        "Seaport Taiwan": (25.117,121.244),
         "Other": (None,None)}
 
     # Desplegable de opciones
@@ -94,10 +94,10 @@ with st.sidebar:
     # ------------------------ lat_heli_port & lon_heli_port: Lista de valores predefinidos con nombres -------------------------------------
     heli_port_options = {
         "": (0,0),
-        "Heliport Bay of Biscay": (46.725,-2.350)
-        "Heliport North sea": (52.635,1.726)
-        "Heliport Baltic sea": (54.515,13.654)
-        "Heliport Taiwan": (25.117,121.244)
+        "Heliport Bay of Biscay": (46.725,-2.350),
+        "Heliport North sea": (52.635,1.726),
+        "Heliport Baltic sea": (54.515,13.654),
+        "Heliport Taiwan": (25.117,121.244),
         "Other": (None,None)}
 
     # Desplegable de opciones
