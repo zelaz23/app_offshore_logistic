@@ -42,7 +42,6 @@ with st.sidebar:
     # Desplegable de opciones
     selected_option_lat_OSW = st.selectbox('Select latitude: ', options=list(lat_OSW_options.keys()))
     selected_option_lat_OSW_value = lat_OSW_options[selected_option_lat_OSW]
-    st.write("latitude:", selected_option_lat_OSW_value)
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_OSW:
@@ -52,6 +51,7 @@ with st.sidebar:
         # Si selecciona una opción predefinida, extraer el valor numérico
         try:
             lat_OSW = float(selected_option_lat_OSW_value)
+            st.write("latitude:", selected_option_lat_OSW_value)
         except IndexError:
             st.error("Wrong format, please type a correct value")
 
