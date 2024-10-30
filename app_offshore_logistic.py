@@ -41,7 +41,7 @@ with st.sidebar:
         "Other": (None, None)}
 
     # Desplegable de opciones
-    selected_location = st.selectbox('Select location: ', options=list(OSW_location_options.keys()), key="test_location_selectbox")
+    selected_location = st.selectbox('Select location: ', options=list(test_location_options.keys()), key="test_location_selectbox")
 
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_location:
