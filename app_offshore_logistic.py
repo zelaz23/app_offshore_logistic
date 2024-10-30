@@ -41,7 +41,9 @@ with st.sidebar:
 
     # Desplegable de opciones
     selected_option_lat_OSW = st.selectbox('Select latitude or type one: ', options=list(lat_OSW_options.keys()))
-    st.write("Select:", selected_option_lat_OSW)
+    selected_option_value = lat_OSW_options[selected_option_lat_OSW]
+    st.write("Select:", selected_option_value)
+
     # Determina el valor de latitud según la opción seleccionada
     if "Other" in selected_option_lat_OSW:
         # Si selecciona "Other", habilitar el número manual
