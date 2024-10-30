@@ -31,7 +31,30 @@ with st.sidebar:
 
     #INPUTS DE LA APLICACION
     # Coordenadas de las ubicaciones
-    lat_OSW = st.number_input('OSW  Location lat', -90.000, 90.000, format="%.3f")
+    # Lista de valores predefinidos con nombres
+    lat_options = {
+        "Bay of Biscay": 46.875,
+        "North sea": 53.041,
+        "Baltic sea": 54.834,
+        "Taiwan": 24.749,
+        "Other": None}
+
+    # Desplegable de opciones
+    selected_option = st.selectbox('Select a latitude or type one:', options=list(lat_options.keys()))
+
+    # Número de latitud basado en la selección
+    if lat_options[selected_option] is not None:
+        lat_OSW = lat_options[selected_option]
+    else:
+        lat_OSW = st.number_input('OSW Location lat', -90.000, 90.000, format="%.3f")
+
+    #st.write("Latitud seleccionada:", lat_OSW)
+
+
+
+
+
+    #lat_OSW = st.number_input('OSW  Location lat', -90.000, 90.000, format="%.3f")
     lon_OSW = st.number_input('OSW  Location lon', -180.000, 180.000, format="%.3f")
     lat_sea_port = st.number_input('Sea Port lat', -90.000, 90.000, format="%.3f")
     lon_sea_port = st.number_input('Sea Port lon', -180.000, 180.000, format="%.3f")
@@ -56,7 +79,7 @@ with st.sidebar:
     working_hours_start = st.time_input('Working hours - Start', time(6, 0))
     working_hours_end = st.time_input('Working hours - End', time(18, 0))
     working_days = st.multiselect('Working days', ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'])
-    temperature = st.slider('Working temperature limit', -5, 30)
+    temperature = st.number_input('Working temperature limit', min_value=-5, max_value=30, value=0)
 
     #DATOS CONOCIDOS (fijadas como datos estaticos por simplicidad)
     ctv_visibility, sov_visibility, heli_visibility = 0.15, 2, 3
